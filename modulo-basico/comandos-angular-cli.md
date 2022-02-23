@@ -1,4 +1,4 @@
-# Comandos Angular CLI
+# Comandos Angular CLI (Command-Line Interface)
 
 > Nível de projeto
 
