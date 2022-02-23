@@ -1,84 +1,87 @@
 # Treinamento Angular e-Kaizen
 
-Repositório destinado ao treinamento de Angular interno da empresa
+Descritivo do fluxo e tópicos a serem abordados durante o treinamento de Angular. 
 
-## Fluxo de Treinamento
+## Módulo Básico
 
-> Módulo Básico
-
-- [ ] Atalhos
+> Comandos Terminal
         
-      1. IDE
-      2. Angular
+      1. Angular CLI
+      2. Npm e Yarn
 
-- [ ] Introdução
+> Introdução
         
       1. Sobre o Angular
-      2. Instalações CLI + Dependências
+      2. Sobre o TypeScript
 
-- [ ] Angular Schematic
+> Estrutura do Projeto
         
       1. Diretórios
-      2. Componentes
-      3. Módulos
-      4. Serviços
+      2. Arquivos
 
-- [ ] Estrutura
+> Estrutura Angular
 
       1. HTML
       2. SCSS
-      3. TypeScript
+      3. Classe
+      4. Módulos
+      5. Serviços
+      
+> Introdução TypeScript
 
-- [ ] Angular Prático
+      1. Tipos
+      2. Orientação a Objetos
+
+> Introdução Angular
 
       1. Manipulação e Controle de Dados
       2. Diretivas
       3. Pipes
 
-- [ ] Bibliotecas
+> Bibliotecas
         
       1. Bootstrap
       2. Nebular
       3. Outros
 
-> Módulo Intermediário
+## Módulo Intermediário
 
-- [ ] Estrutura
+> Estrutura
 
-      1. Componetização
+      1. Componentização
       2. Padronização
 
-- [ ] Rotas
+> Rotas
 
       1. Configuração
       2. Propriedades
 
-- [ ] Formulários
+> Formulários
 
       1. Template Driven
       2. Reactive Forms
 
-> Módulo Interno
+## Módulo Interno
 
-- [ ] Componentes
+> Componentes Internos
 
       1. Componente Imagem
       2. Componente Arquivo
       3. Componente Select
       4. etc...
     
-> Módulo Avançado
+## Módulo Avançado
     
-- [ ] Interface Model
+> Interface Model
   
       1. Estrutura
       2. Tipagem
     
-- [ ] Integrações API
+> Integrações API
     
       1. CRUD
 
-- [ ] RxJS
+> RxJS
 
       1. Métodos Gerais Comuns
       2. Exemplos Aplicados
