@@ -1,4 +1,4 @@
-# Atalhos e Comandos
+# Comandos Angular CLI
 
 > Nível de projeto
 
