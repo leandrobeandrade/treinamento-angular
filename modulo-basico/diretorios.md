@@ -1,12 +1,12 @@
 ## Diretórios de uma aplicação comum Angular
 
-:file_folder: :heavy_minus_sign: **dist** : Diretório responsável por armazenar os arquivos que são enviados para produção após o comando build
+:file_folder: :heavy_minus_sign: **dist** : Diretório responsável por armazenar os arquivos que são enviados para produção após o comando ng build
 
 :file_folder: :heavy_minus_sign: **node_modules** : Diretório responsável por armazenar as dependências do projeto
 
-:open_file_folder: :heavy_minus_sign: **src** : Diretório responsável por armazenar arquivos
+:open_file_folder: :heavy_minus_sign: **src** : Diretório responsável por armazenar arquivos gerais
 
-|____ :file_folder: :heavy_minus_sign: **app** : Diretório responsável por armazenar arquivos referentes a aplicação
+|____ :file_folder: :heavy_minus_sign: **app** : Diretório responsável por armazenar arquivos referentes as funcionalidades da aplicação
 
 |____ :file_folder: :heavy_minus_sign: **assets** : Diretório responsável por armazenar arquivos estáticos da aplicação
 
@@ -17,9 +17,9 @@
 
 ## Diretórios internos da aplicação e-Kaizen
 
-:open_file_folder: :heavy_minus_sign: **src** : Diretório responsável por armazenar arquivos
+:open_file_folder: :heavy_minus_sign: **src** : Diretório responsável por armazenar arquivos gerais
 
-|_ :open_file_folder: :heavy_minus_sign: **app** : Diretório responsável por armazenar arquivos referentes a aplicação
+|_ :open_file_folder: :heavy_minus_sign: **app** : Diretório responsável por armazenar arquivos referentes as funcionalidades da aplicação
 
 |____ :file_folder: :heavy_minus_sign: **@core** : Diretório responsável por armazenar arquivos referentes a infraestrutura da aplicação
 
