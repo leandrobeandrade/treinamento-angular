@@ -1,6 +1,6 @@
 ## Breve Introdução
 
-> TypeScript é uma linguagem de programação fortemente tipada que se baseia em JavaScript, oferecendo melhores ferramentas em qualquer escala.
+> TypeScript é uma linguagem de programação fortemente tipada que se baseia em JavaScript, oferecendo melhores ferramentas em qualquer escala. O TypeScript oferece todos os recursos do JavaScript e uma camada adicional em cima deles: o sistema de tipos do TypeScript.
 
 ### Algumas Características
 
@@ -49,15 +49,7 @@ Permite fornecer um tipo para o dado em runtime.
     
 #### Tipos das variáveis
     
-    const classe: Classe = new Classe()                         // tipo const - não será alterado o valor, guardar referência
-
-    interface Rx {
-      readonly x: number;                                       // tipo READONLY
-    }
-    
-    let rx: Rx = { x: 10 };
-    console.log(rx)
-    rx.x = 1; // error
+    const classe: Classe = new Classe()                         // tipo const - não será alterado o valor, guardar a referência
     
 #### Tipos especializados
 
@@ -112,8 +104,6 @@ a palavra reservada **`extends`**.
 
 Permite que o comportamento de classes filhas tenham diferentes implementaçãoes através da **Sobrescrita (override)** de métodos.
 
-    // Sobrescrita
-    
     class Pessoa {
       public nome: string;
 
@@ -166,7 +156,7 @@ subclasses que implementam todos os membros abstratos.
     
     class Derived extends Base {
       getName() {
-        return "world";
+        return 'mundo';
       }
     }
  
@@ -204,28 +194,171 @@ a implementação de uma interface utiliza-se a plavara reservada **`implements`
     
 > Generics Types
 
-   Os tipos genéricos em TypeScript permitem que se escreva o código de uma forma reutilizável e generalizada em funções, classes e interfaces.
+Os tipos genéricos em TypeScript permitem que se escreva o código de uma forma reutilizável e generalizada em funções, classes e interfaces.
    
-   function aleatorios<T>(items: T[]): T {
+   // Generic Function
+    function aleatorios<T>(items: T[]): T {
       let aleatIndex = Math.floor(Math.random() * items.length);
       return items[aleatIndex];
-   }
+    }
 
-   let numbers = [1, 5, 7, 4, 2, 9];
-   let aleatorioNum = aleatorios<number>(numbers); 
-   console.log(aleatorioNum);
+    let numbers = [1, 5, 7, 4, 2, 9];
+    let aleatorioNum = aleatorios<number>(numbers); 
+    console.log(aleatorioNum);
 
-   let strings = ['1', '5', '7', '4', '2', '9'];
-   let aleatorioString = aleatorios<string>(strings); 
-   console.log(aleatorioString);
+    let strings = ['1', '5', '7', '4', '2', '9'];
+    let aleatorioString = aleatorios<string>(strings); 
+    console.log(aleatorioString);
+    
+    // Generic Class
+    class Gaveta<TipoDeRoupa> {
+      conteudo: TipoDeRoupa[] = [];
+
+      adicionar(objeto: TipoDeRoupa) {
+        this.conteudo.push(objeto);
+      }
+
+      remover() {
+        return this.conteudo.pop();
+      }
+    }
+
+    interface Meia {
+      cor: string;
+    }
+
+    interface Camiseta {
+      tamanho: 'p' | 'm' | 'g';
+    }
+
+    const gavetaDeMeias = new Gaveta<Meia>();
+    gavetaDeMeias.adicionar({ cor: 'branco' });
+    console.log(gavetaDeMeias.conteudo);
+
+    const gavetaDeCamisetas = new Gaveta<Camiseta>();
+    gavetaDeCamisetas.adicionar({ tamanho: 'm' });
+    console.log(gavetaDeCamisetas.conteudo);
+
+    // Union Types 
+    const gavetaMista = new Gaveta<Meia | Camiseta>();
+    gavetaMista.adicionar({ cor: 'verde'});
+    gavetaMista.adicionar({ tamanho: 'g'});
+    console.log(gavetaMista.conteudo);
   
-> Generics Types
+> Utility Types
   
-  ...
+Tipos utilitários para facilitar transformações de tipo comum. Esses utilitários estão disponíveis globalmente.
+
+#### Partial< Type >
+Constrói um tipo com todas as propriedades de Type definidas como opcionais. Esse utilitário irá retornar um tipo que representa todos os subconjuntos de um determinado tipo.
+    
+    interface Todo {
+      title: string;
+      description: string;
+    }
+
+    function updateTodo(todo: Todo, fieldsToUpdate: Partial<Todo>) {
+      return { ...todo, ...fieldsToUpdate };
+    }
+
+    const todo1: Todo = {
+      title: 'Organizar armário',
+      description: 'limpar, arrumar',
+    };
+    console.log(updateTodo(todo1, todo1));
+
+    const todo2: Todo = updateTodo(todo1, {
+      description: 'Sujeira jogada no lixo',
+    });
+    console.log(todo2);
+
+    const todo3: Todo = updateTodo(todo2, { title: 'Armário arrumado!' })
+    console.log(todo3);
+    
+#### Required< Type >
+Constrói um tipo que consiste em todas as propriedades de Type definidas como obrigatórias. O oposto de `Partial`.
+
+    interface Props {
+      a?: number;
+      b?: string;
+    }
+
+    const obj1: Props = { a: 5 };
+    const obj2: Required<Props> = { a: 5 };   // ERRO
+    
+#### Readonly< Type >
+Constrói um tipo com todas as propriedades de Type definidas como leitura, o que significa que as propriedades do tipo construído não podem ser reatribuídas.
+
+    interface Todo {
+      title: string;
+    }
+
+    const todo: Readonly<Todo> = {
+      title: 'Delete inactive users',
+    };
+
+    todo.title = 'Hello';   // ERRO
+    
+#### Record< Keys, Type >
+Constrói um tipo de objeto cujas chaves de propriedade são Keys e cujos valores de propriedade são Type. Este utilitário pode ser usado para mapear as propriedades de um tipo para outro tipo.
+
+    interface Pessoa {
+      nome: string;
+      idade: number;
+    }
+
+    type Departamento = 'TI' | 'RH' | 'Operacional';
+
+    const pessoa: Record<Departamento, Pessoa> = {
+      TI: { idade: 30, nome: 'Fulano' },
+      RH: { idade: 26, nome: 'Beltrano' },
+      Operacional: { idade: 21, nome: 'Ciclano' },
+    };
+ 
+    console.log(pessoa);
+    
+#### Pick< Type, Keys >
+Constrói um tipo escolhendo o conjunto de propriedades Keys (literal de string ou união de literais de string) de Type.
+
+    interface Todo {
+      title: string;
+      description: string;
+      completed: boolean;
+    }
+
+    type TodoPreview = Pick<Todo, 'title' | 'completed'>;
+
+    const todo: TodoPreview = {
+      title: 'Limpar Quarto',
+      completed: false,
+      description: ''    // ERRO
+    };
+
+    console.log(todo);
+    
+#### Omit< Type, Keys >
+Constrói um tipo selecionando todas as propriedades de Type e removendo Keys (literal de string ou união de literais de string).
+
+    interface Todo {
+      title: string;
+      description: string;
+      completed: boolean;
+      createdAt: number;
+    }
+
+    type TodoPreview = Omit<Todo, 'description'>;
+
+    const todo1: TodoPreview = {
+      title: 'Limpar quarto',
+      completed: false,
+      createdAt: 1615544252770,
+    };
+
+    console.log(todo1);
   
 > Enums
 
-Enums permitem que um desenvolvedor defina um conjunto de constantes nomeadas. O TypeScript fornece enumerações **numéricas** e baseadas em **string**.
+Enums permitem que um desenvolvedor defina um conjunto de `constantes nomeadas`. O TypeScript fornece enumerações **numéricas** e baseadas em **string**.
     
     enum Direction {                                            // tipo ENUM - Nummber
       Up,
@@ -237,10 +370,10 @@ Enums permitem que um desenvolvedor defina um conjunto de constantes nomeadas. O
     console.log(Direction.Up)
     
     enum Direction {                                            // tipo ENUM - String
-      Up = "Up",
-      Down = "Down",
-      Left = "Left",
-      Right = "Right",
+      Up = 'Up',
+      Down = 'Down',
+      Left = 'Left',
+      Right = 'Right',
     }
     
     console.log(Direction.Up)
