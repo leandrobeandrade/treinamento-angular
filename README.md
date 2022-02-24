@@ -44,7 +44,8 @@ Descritivo do fluxo e tópicos a serem abordados durante o treinamento de Angula
 > Introdução Angular
 
 - Manipulação e Controle de Dados
-- Diretivas
+- Manipulação e Controle de Classes CSS
+- Diretivas Personalizadas
 - Pipes
 
 > Bibliotecas
