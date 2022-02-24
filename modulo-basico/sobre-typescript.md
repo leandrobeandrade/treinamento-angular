@@ -1,6 +1,6 @@
 ## Breve Introdução
 
-> TypeScript é uma linguagem de programação fortemente tipada que se baseia em JavaScript, oferecendo melhores ferramentas em qualquer escala. O TypeScript oferece todos os recursos do JavaScript e uma camada adicional em cima deles: o sistema de tipos do TypeScript.
+> [TypeScript](https://www.typescriptlang.org/) é uma linguagem de programação fortemente tipada que se baseia em JavaScript, oferecendo melhores ferramentas em qualquer escala. O TypeScript oferece todos os recursos do JavaScript e uma camada adicional em cima deles: o sistema de tipos do TypeScript.
 
 ### Algumas Características
 
@@ -196,7 +196,7 @@ a implementação de uma interface utiliza-se a plavara reservada **`implements`
 
 Os tipos genéricos em TypeScript permitem que se escreva o código de uma forma reutilizável e generalizada em funções, classes e interfaces.
    
-   // Generic Function
+    // Generic Function
     function aleatorios<T>(items: T[]): T {
       let aleatIndex = Math.floor(Math.random() * items.length);
       return items[aleatIndex];
@@ -355,6 +355,8 @@ Constrói um tipo selecionando todas as propriedades de Type e removendo Keys (l
     };
 
     console.log(todo1);
+    
+[link para ver todos os Utility Types](https://www.typescriptlang.org/docs/handbook/utility-types.html)
   
 > Enums
 
