@@ -1,6 +1,14 @@
 # Treinamento Angular e-Kaizen
 
-Descritivo do fluxo e tópicos a serem abordados durante o treinamento de Angular. 
+Descritivo do fluxo e tópicos a serem abordados durante o treinamento de Angular. Servindo como documentação de apoio para pesquisa. Outras documentações como as oficiais e cursos em plataformas web também são indicados para complementação assim como para um maior e melhor entendimento a respeito de cada tecnologia utilizada.
+
+- [Angular - Documentação oficial](https://angular.io/)
+- [TypeScript - Documentação oficial](https://www.typescriptlang.org/)
+- [RxJS - Documentação oficial](https://rxjs.dev/)
+- [Nebular](https://akveo.github.io/nebular/)
+- [Bootstrap](https://getbootstrap.com.br/)
+- [Font Awesome](https://fontawesome.com/icons)
+- [Smart-Table](https://akveo.github.io/ng2-smart-table/#/)
 
 ## Módulo Básico
 
@@ -16,8 +24,8 @@ Descritivo do fluxo e tópicos a serem abordados durante o treinamento de Angula
 
 > Estrutura do Projeto
         
-- [Diretórios](https://github.com/leandrobeandrade/treinamento-angular/new/main/modulo-basico/diretorios.md)
-- Arquivos
+- [Diretórios](https://github.com/leandrobeandrade/treinamento-angular/blob/main/modulo-basico/diretorios.md)
+- [Arquivos](https://github.com/leandrobeandrade/treinamento-angular/blob/main/modulo-basico/arquivos.md)
 
 > Estrutura Angular
 
