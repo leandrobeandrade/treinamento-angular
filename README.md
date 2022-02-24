@@ -16,7 +16,7 @@ Descritivo do fluxo e tópicos a serem abordados durante o treinamento de Angula
 
 > Estrutura do Projeto
         
-- Diretórios
+- [Diretórios](https://github.com/leandrobeandrade/treinamento-angular/new/main/modulo-basico/diretorios.md)
 - Arquivos
 
 > Estrutura Angular
@@ -29,7 +29,7 @@ Descritivo do fluxo e tópicos a serem abordados durante o treinamento de Angula
       
 > Introdução TypeScript
 
-- Tipos
+- Tipagem
 - Orientação a Objetos
 
 > Introdução Angular
@@ -45,11 +45,6 @@ Descritivo do fluxo e tópicos a serem abordados durante o treinamento de Angula
 - Outros
 
 ## Módulo Intermediário
-
-> Estrutura
-
-- Componentização
-- Padronização
 
 > Rotas
 
@@ -67,8 +62,7 @@ Descritivo do fluxo e tópicos a serem abordados durante o treinamento de Angula
 
 - Componente Imagem
 - Componente Arquivo
-- Componente Select
-- etc...
+- Componente Select, etc...
     
 ## Módulo Avançado
     
