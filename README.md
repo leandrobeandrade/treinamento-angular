@@ -39,6 +39,7 @@ Descritivo do fluxo e tópicos a serem abordados durante o treinamento de Angula
 
 - [Tipagem](https://github.com/leandrobeandrade/treinamento-angular/blob/main/modulo-basico/typescript.md#introdu%C3%A7%C3%A3o-e-fundamenta%C3%A7%C3%A3o-typesscript)
 - [Orientação a Objetos](https://github.com/leandrobeandrade/treinamento-angular/blob/main/modulo-basico/typescript.md#orienta%C3%A7%C3%A3o-a-objetos)
+- [Tipos Especiais](https://github.com/leandrobeandrade/treinamento-angular/blob/main/modulo-basico/typescript.md#tipos-especializados)
 
 > Introdução Angular
 
