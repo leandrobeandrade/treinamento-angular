@@ -48,7 +48,7 @@ Permite fornecer um tipo para o dado em runtime.
     result = 'olá'
     
     type things = string | number;                              // type alias
-    let anywhere: type;
+    let anywhere: things;
     anywhere = 10;
     anywhere = 'olá';
     
