@@ -184,6 +184,37 @@ a implementação de uma interface utiliza-se a plavara reservada **`implements`
     itf.getManagerName('fulano');
     console.log(itf.isMan(true));
  
+#### Dynamic Properties
+    
+    interface Todo {
+      title: string;
+      description: string;
+      [props: string]: string | number;
+    }
+    
+    interface Todo {
+      title: string;
+      description: string;
+      [props: string]: string | number;
+    }
+
+    let todo1: Todo = {
+      title: 'Arrumar quarto',
+      description: 'Jogar lixo fora!',
+      vezes: 2 
+    }
+
+    console.log(todo1)
+
+    let todo2: Todo = {
+      title: 'Arrumar quarto',
+      description: 'Jogar lixo fora!',
+      vezes: '3', 
+      outro: '',
+    }
+
+    console.log(todo2)
+ 
 ### Tipos Especializados 
  
 > Generics Types
