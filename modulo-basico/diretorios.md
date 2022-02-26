@@ -35,7 +35,7 @@
 
 |________ :file_folder: :heavy_minus_sign: **utils** : Diretório responsável por armazenar arquivos referentes utilitários
 
-|___ :file_folder: :heavy_minus_sign: **@theme** : Diretório responsável por armazenar arquivos comuns a toda aplicação
+|____ :file_folder: :heavy_minus_sign: **@theme** : Diretório responsável por armazenar arquivos comuns a toda aplicação
 
 |________ :file_folder: :heavy_minus_sign: **components** : Diretório responsável por armazenar componentes comum a aplicação
 
@@ -49,7 +49,7 @@
 
 |________ :file_folder: :heavy_minus_sign: **styles** : Diretório responsável por armazenar arquivos referentes utilitários
 
-|___ :file_folder: :heavy_minus_sign: **pages** : Diretório responsável por armazenar arquivos referentes as ferramentas e-Kaizen
+|____ :file_folder: :heavy_minus_sign: **pages** : Diretório responsável por armazenar arquivos referentes as ferramentas e-Kaizen
 
 |________ :file_folder: :heavy_minus_sign: **auth** : Diretório responsável por armazenar componente de login
 
