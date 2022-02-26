@@ -5,7 +5,7 @@ Define a estilização dos elementos do Template, utilizando a linguagem de esti
 ### Características
 
 - Escrito na formatação padrão CSS, porém, com funcionalidades e recursos adicionais
-- Possui a extensão **scss**, que quando compilado trtansforma as regras em css padrão
+- Possui a extensão **scss**, que quando compilado transforma as regras em css padrão
 
 ### Recursos SCSS
 
