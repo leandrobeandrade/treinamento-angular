@@ -2,6 +2,8 @@
 
 - Tipagem estática
 - Herança
+- Modificadores de Acesso
+- Métodos Get/Set
 - Polimorfismo (Sobrescrita)
 - Classes Abstratas
 - Interfaces
@@ -92,9 +94,56 @@ a palavra reservada **`extends`**.
     console.log(func);
     func.falar();
     
+> Modificadores de Acesso
+
+As classes tem modificadores em suas propriedades que definem o nível de acesso que cada uma terá.
+
+- **public:** Modificador padrão, toda a propriedade que for declarada sem um modificador de acesso automaticamente se torna pública. Sendo que esta propriedade poderá
+ser acessada por qualquer classe
+- **protected:** Modificador acessível na(s) classe(s) filha(s) que herdam da classe mãe as propriedades com este modificador
+- **private:** Quando utilizamos o modificador private em uma propriedade, esta não pode ser acessada fora da classe que a contém. Por convenção no JavaScript/TypeScript
+quando declaramos propriedades privadas inserimos o sinal de underline no começo da propriedade. Para acesso `NÃO DIRETO` de propriedades com este modificador utilizamos técnicas conhecidadas como **getters** e **setters**
+
+> Getters/Setters
+
+São utilizados para a manipulação de valores de propriedades de classes mães com o modificador de acesso **private**.
+
+    class Pessoa {
+      public nome: string;
+      protected altura: number;
+      private _idade: number;
+
+      public get idade(): number {
+        return this._idade;
+      }
+
+      public set idade(val: number) {
+        this._idade = val;
+      }
+    }
+
+    class Funcionario extends Pessoa {
+      setAltura(alt: number){
+        this.altura = alt;
+      }
+    }
+
+    let funcionario = new Funcionario();
+
+    funcionario.nome = 'Fulano';
+    funcionario.idade = 35;
+    funcionario.setAltura(1.84);
+    
+    // funcionario._idade = 80      // ERRO
+    // funcionario.altura = 1.90    // ERRO
+
+    console.log(funcionario);
+
 > Polimorfismo
 
 Permite que o comportamento de classes filhas tenham diferentes implementaçãoes através da **Sobrescrita (override)** de métodos.
+
+**OBS:** Typescript não permite a técnica de **Sobrecarga (overload)** de métodos
 
     class Pessoa {
       public nome: string;
@@ -158,9 +207,9 @@ subclasses que implementam todos os membros abstratos.
 > Interfaces
 
 Assim como classes abstratas, interfaces servem como um modelo que deve ser implementado no momento que for declarado seu tipo, a nível de classes para
-a implementação de uma interface utiliza-se a plavara reservada **`implements`**.
+a implementação de uma interface utiliza-se a plavara reservada **`implements`**. Por convenção é colocadoa letra I no começo do nome de uma interface.
 
-    interface IEmployee {
+    interface IFuncionario {
       empCode: number;
       empName: string;
       getSalary: (num: number) => number;
@@ -168,7 +217,7 @@ a implementação de uma interface utiliza-se a plavara reservada **`implements`
       isMan(bool: boolean): boolean;
     }
 
-    const itf: IEmployee = {
+    const itf: IFuncionario = {
       empCode: 10,
       empName: 'Test',
       getSalary: (val) => val + 10,
