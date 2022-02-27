@@ -100,13 +100,13 @@ As classes tem modificadores em suas propriedades que definem o nível de acesso
 
 - **public:** Modificador padrão, toda a propriedade que for declarada sem um modificador de acesso automaticamente se torna pública. Sendo que esta propriedade poderá
 ser acessada por qualquer classe
-- **protected:** Modificador acessível na(s) classe(s) filha(s) que herdam da classe mãe as propriedades com este modificador
-- **private:** Quando utilizamos o modificador private em uma propriedade, esta não pode ser acessada fora da classe que a contém. Por convenção no JavaScript/TypeScript
+- **protected:** Modificador acessível na(s) classe(s) filha(s) que herdam da classe mãe as propriedades e métodos com este modificador
+- **private:** Quando utilizamos o modificador private em uma propriedade ou método, esta não pode ser acessada fora da classe que a contém. Por convenção no JavaScript/TypeScript
 quando declaramos propriedades privadas inserimos o sinal de underline no começo da propriedade. Para acesso `NÃO DIRETO` de propriedades com este modificador utilizamos técnicas conhecidadas como **getters** e **setters**
 
 > Getters/Setters
 
-São utilizados para a manipulação de valores de propriedades de classes mães com o modificador de acesso **private**.
+São utilizados para a manipulação de valores de propriedades e métodos de classes mães com o modificador de acesso **private**.
 
     class Pessoa {
       public nome: string;
@@ -127,10 +127,16 @@ São utilizados para a manipulação de valores de propriedades de classes mães
         this.altura = alt;
       }
     }
+    
+    const pessoa = new Pessoa();
+    pessoa.nome = 'Fulano';
+    
+    // pessoa._idade = 80      // ERRO
+    // pessoa.altura = 1.90    // ERRO
 
-    let funcionario = new Funcionario();
+    const funcionario = new Funcionario();
 
-    funcionario.nome = 'Fulano';
+    funcionario.nome = 'Ciclano';
     funcionario.idade = 35;
     funcionario.setAltura(1.84);
     
@@ -153,14 +159,14 @@ Permite que o comportamento de classes filhas tenham diferentes implementaçãoe
       }
 
       print(): void {
-        console.log(`nome: ${this.nome}`);
+        console.log(`Nome da pessoa: ${this.nome}`);
       }
     }
 
-    class Empregado  extends Pessoa {
+    class Funcionario extends Pessoa {
       private salario: number;
 
-      constructor(nome:string, salario:number){
+      constructor(nome: string, salario: number) {
         super(nome);
         this.salario = salario;
       }
@@ -171,17 +177,17 @@ Permite que o comportamento de classes filhas tenham diferentes implementaçãoe
       }
     }
 
-    let pess: Pessoa = new Pessoa('Fulano');
-    pess.print();
-    console.log(pess);
+    const pessoa: Pessoa = new Pessoa('Fulano');
+    pessoa.print();
+    console.log(pessoa);
 
-    let func: Pessoa = new Empregado('Ciclano', 3500);		// polimorfismo
-    func.print();
-    console.log(func);
+    const funcionario: Pessoa = new Funcionario('Ciclano', 3500);		// polimorfismo
+    funcionario.print();
+    console.log(funcionario);
     
 > Classe Abstrata
 
-Classes, métodos e propriedades no TypeScript podem ser abstratos. Um método ou propriedade abstrato ou campo abstrato é aquele que não teve uma implementação fornecida. 
+Classes, métodos e propriedades no TypeScript podem ser abstratos. Um método ou propriedade abstrato é aquele que não teve uma implementação fornecida. 
 Esses membros devem existir dentro de uma classe abstrata, que não pode ser instanciada diretamente. O papel das classes abstratas é servir como uma classe base para 
 subclasses que implementam todos os membros abstratos.
 
@@ -193,7 +199,7 @@ subclasses que implementam todos os membros abstratos.
       }
     }
  
-    const b = new Base();     // ERRO
+    // const b = new Base();     // ERRO
     
     class Derived extends Base {
       getName() {
@@ -207,7 +213,7 @@ subclasses que implementam todos os membros abstratos.
 > Interfaces
 
 Assim como classes abstratas, interfaces servem como um modelo que deve ser implementado no momento que for declarado seu tipo, a nível de classes para
-a implementação de uma interface utiliza-se a plavara reservada **`implements`**. Por convenção é colocadoa letra I no começo do nome de uma interface.
+a implementação de uma interface utiliza-se a plavara reservada **`implements`**. Por convenção é colocadoa letra `I` no começo do nome de uma interface.
 
     interface IFuncionario {
       empCode: number;
@@ -234,35 +240,31 @@ a implementação de uma interface utiliza-se a plavara reservada **`implements`
     console.log(itf.isMan(true));
  
 #### Dynamic Properties
-    
-    interface Todo {
-      title: string;
-      description: string;
-      [props: string]: string | number;
-    }
-    
-    interface Todo {
-      title: string;
-      description: string;
-      [props: string]: string | number;
-    }
 
+São utilizados quando queremos deixar dinâmico a quantidade de propriedades e o tipo do valor desta(s) propriedade(s).
+    
+    interface Todo {
+      title: string;
+      description: string;
+      [props: string]: string | number;
+    }
+    
     let todo1: Todo = {
       title: 'Arrumar quarto',
       description: 'Jogar lixo fora!',
       vezes: 2 
     }
 
-    console.log(todo1)
+    console.log(todo1);
 
     let todo2: Todo = {
-      title: 'Arrumar quarto',
-      description: 'Jogar lixo fora!',
+      title: 'Ajeitar banheiro',
+      description: 'Limpar o box!',
       vezes: '3', 
       outro: '',
     }
 
-    console.log(todo2)
+    console.log(todo2);
  
 ### Tipos Especializados 
  
@@ -324,6 +326,7 @@ Os tipos genéricos em TypeScript permitem que se escreva o código de uma forma
 Tipos utilitários para facilitar transformações de tipo comum. Esses utilitários estão disponíveis globalmente.
 
 #### Partial< Type >
+
 Constrói um tipo com todas as propriedades de Type definidas como opcionais. Esse utilitário irá retornar um tipo que representa todos os subconjuntos de um determinado tipo.
     
     interface Todo {
