@@ -1,7 +1,7 @@
 ## Classe (Componente) Angular
 
 A Classe ou componente Angular é o arquivo responsável por criar e gerenciar toda a lógica de negócio referente a tela no browser em conjunto com o seu `HTML` e `CSS` 
-correspondente. 
+correspondente. Um Componente Angular pode ser considerado como uma Diretiva com template (HTML).
 
 
 ### Descrição
