@@ -12,11 +12,10 @@
 
 ### Outra características
 
-- Baseada em JavaScript, facilitando o desenvolvimento para que já conhece
+- Baseado em JavaScript, facilitando o desenvolvimento para quem já conhece
 - Fácil sintaxe e de fácil leitura
 - Manutenção efetiva e constante pelo time de desenvolvedores (Microsoft) e comunidade em geral
 - Grande suporte e quantidade de plugins forncedos para serem utilizados pelas IDE's
 - Enorme capacidade cross browser e cross plataform 
-
 
 ![image](https://user-images.githubusercontent.com/24658433/155592203-6daa2f69-20e8-4e74-af6d-e83126546646.png)
