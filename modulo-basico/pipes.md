@@ -1,7 +1,6 @@
 ## Pipe Angular
 
-Arquivo responsável por criar métodos que agem no DOM virtual Angular enas transformaçõse de dados comuns, por exemplo um pipe de data que pode ser amplamente 
-utilizado na aplicação.
+Arquivo responsável por criar métodos que agem no DOM virtual Angular criando transformações sobre determinados dados em comum, por exemplo um pipe para dados de data.
 
 
 ### Descrição @Pipe
