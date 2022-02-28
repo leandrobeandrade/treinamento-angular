@@ -50,13 +50,13 @@ Descritivo do fluxo e tópicos a serem abordados durante o treinamento de Angula
 - [Diretivas](https://github.com/leandrobeandrade/treinamento-angular/blob/main/modulo-basico/diretivas.md)
 - [Pipes](https://github.com/leandrobeandrade/treinamento-angular/blob/main/modulo-basico/pipes.md)
       
-> Introdução TypeScript
+> Introdução TypeScript (Prático)
 
 - [Tipagem](https://github.com/leandrobeandrade/treinamento-angular/blob/main/modulo-basico/typescript.md#introdu%C3%A7%C3%A3o-e-fundamenta%C3%A7%C3%A3o-typesscript)
 - [Orientação a Objetos](https://github.com/leandrobeandrade/treinamento-angular/blob/main/modulo-basico/typescript.md#orienta%C3%A7%C3%A3o-a-objetos)
 - [Tipos Especiais](https://github.com/leandrobeandrade/treinamento-angular/blob/main/modulo-basico/typescript.md#tipos-especializados)
 
-> Introdução Angular
+> Introdução Angular (Prático)
 
 - Manipulação e Controle de Dados
 - Manipulação e Controle de Classes CSS
@@ -65,9 +65,9 @@ Descritivo do fluxo e tópicos a serem abordados durante o treinamento de Angula
 
 > Bibliotecas
         
-- Bootstrap
-- Nebular
-- Outros
+- [Bootstrap](https://github.com/leandrobeandrade/treinamento-angular/blob/main/modulo-basico/bootstrap.md)
+- [Nebular](https://github.com/leandrobeandrade/treinamento-angular/blob/main/modulo-basico/nebular.md)
+- [Outros](https://github.com/leandrobeandrade/treinamento-angular/blob/main/modulo-basico/outras-bibliotecas.md)
 
 ## Módulo Intermediário
 
