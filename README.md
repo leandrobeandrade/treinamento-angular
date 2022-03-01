@@ -85,9 +85,9 @@ Descritivo do fluxo e tópicos a serem abordados durante o treinamento de Angula
 
 > Componentes Internos
 
-- Componente Imagem
-- Componente Arquivo
-- Componente Select, etc...
+- [Componente QR Code](https://github.com/leandrobeandrade/treinamento-angular/blob/main/modulo-interno/componentes.md)
+- [Componente Imagem](https://github.com/leandrobeandrade/treinamento-angular/blob/main/modulo-interno/componentes.md)
+- [Componente Smart Select, etc...](https://github.com/leandrobeandrade/treinamento-angular/blob/main/modulo-interno/componentes.md)
     
 ## Módulo Avançado
     
