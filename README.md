@@ -59,7 +59,7 @@ Descritivo do fluxo e tópicos a serem abordados durante o treinamento de Angula
 > Introdução Angular (Prático)
 
 - [Manipulação e Controle de Dados](https://github.com/leandrobeandrade/treinamento-angular/blob/main/modulo-basico/praticos/manipulacao-dados.md)
-- Manipulação e Controle de Classes CSS
+- [Manipulação e Controle de Estilos](https://github.com/leandrobeandrade/treinamento-angular/blob/main/modulo-basico/praticos/manipulacao-estilos.md)
 - Diretivas Personalizadas
 - Pipes
 
