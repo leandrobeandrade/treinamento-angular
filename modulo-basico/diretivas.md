@@ -10,15 +10,21 @@ Arquivo responsável por gerenciar elementos do DOM virtual Angular. Uma Diretiv
 
       selector?: string
 
-    - `name_element:` Seleciona pelo nome do elemento.
-    - `.class:` Seleciona pelo nome da classe.
-    - `[atribute]:` Seleciona pelo nome do atributo.
-    - `[attribute=value]:` Seleciona pelo nome e valor do atributo.
-    - `:not (sub_selector):` Seleciona apenas se o elemento não corresponder ao sub_selector.
-    - `selector1, selector2:` Seleciona se seletor1 ou seletor2 corresponder.
-
-      > Angular só permite que as diretivas sejam aplicadas em seletores CSS que não ultrapassam os limites dos elementos.
-      >Para o seguinte modelo de HTML, uma diretiva com um seletor de entrada **[type=text]** seria instanciada apenas no elemento <input type = "text">.
+    - **1** - `name_element:` Seleciona pelo nome do elemento.
+    - **2** - `.class:` Seleciona pelo nome da classe do elemento.
+    - **3** - `[atribute]:` Seleciona pelo nome do atributo do elemento.
+    - **4** - `[attribute=value]:` Seleciona pelo nome e valor do atributo do elemento.
+    - **5** - `:not (sub_selector):` Seleciona apenas se o elemento não corresponder ao sub_selector.
+    - **6** - `selector1, selector2:` Seleciona se seletor1 ou seletor2 corresponder.
+      
+          1 - @Directive({ selector: 'dirExample' })              =>    <dirExample>...</dirExample>
+          2 - @Directive({ selector: '.classExample' })           =>    <p class="classExample">...</p>
+          3 - @Directive({ selector: '[dirExample]' })            =>    <p dirExample>...</p>
+          4 - @Directive({ selector: '[dirExample="foo"]' })      =>    <p dirExample="foo">...</p> OU <p [dirExample]="foo">...</p>
+          5 - @Directive({ selector: 'dirExample:not([bar])' })   =>    <dirExample bar>...</dirExample>
+          6 - @Directive({ selector: 'p , h1' })                  =>    <p>...</p> / <h1><h1>
+          
+      > Angular só permite que as diretivas sejam aplicadas em seletores CSS que não ultrapassam os limites dos elementos. 
 
 - **inputs? -** Enumera o conjunto de propriedades de entrada vinculadas a dados para uma diretiva:
 
