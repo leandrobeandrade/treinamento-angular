@@ -60,8 +60,8 @@ Descritivo do fluxo e tópicos a serem abordados durante o treinamento de Angula
 
 - [Manipulação e Controle de Dados](https://github.com/leandrobeandrade/treinamento-angular/blob/main/modulo-basico/praticos/manipulacao-dados.md)
 - [Manipulação e Controle de Estilos](https://github.com/leandrobeandrade/treinamento-angular/blob/main/modulo-basico/praticos/manipulacao-estilos.md)
-- Diretivas Personalizadas
-- Pipes
+- [Diretivas Padrão e Personalizadas](https://github.com/leandrobeandrade/treinamento-angular/blob/main/modulo-basico/praticos/diretivas.md)
+- [Pipes](https://github.com/leandrobeandrade/treinamento-angular/blob/main/modulo-basico/praticos/pipes.md)
 
 > Bibliotecas
         
