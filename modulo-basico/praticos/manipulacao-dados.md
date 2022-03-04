@@ -41,7 +41,7 @@ Consiste na vinculação de eventos a partir do Template ligados à métodos da 
     
 > Two-way Binding
 
-Consiste na comunicação `bidirecional` de dados por proprieadade, comunicação esta entre Template/Classe e vice-versa através da diretiva **`ngModel`**, tendo a diretiva um evento epecífico chamado **ngModelChange()** que atualiza os valores referentes aquela propriedade quando a mesma sofre alguma alteração
+Consiste na comunicação `bidirecional` de dados por propriedade, comunicação esta entre Template/Classe e vice-versa através da diretiva **`ngModel`**, tendo a diretiva um evento epecífico chamado **ngModelChange()** que atualiza os valores referentes aquela propriedade quando a mesma sofre alguma alteração
     
     // HTML
     <input type="text" [(ngModel)]="val" (ngModelChange)="changeVal($event)" />
@@ -158,7 +158,7 @@ Prove acesso a dados presentes em `Diretivas`, `Componentes filhos` e `Elementos
       template: `<h1>Olá {{ val }}!</h1>`,
     })
     export class ChildComponent {
-      val: string;
+      @Input() val: string;
     }
     
     // Componente Pai
@@ -175,7 +175,7 @@ Prove acesso a dados presentes em `Diretivas`, `Componentes filhos` e `Elementos
     @ViewChildren(ChildComponent) childComponent: QueryList<ChildComponent>;
 
     ngAfterViewInit() {
-      console.log('Olá ', childComponent.length);   // 3
+      console.log(childComponent.length);   // 3
     }
     
     
@@ -195,15 +195,10 @@ Prove acesso a dados presentes em `Diretivas`, `Componentes filhos` e `Elementos
       @ContentChild('nameInput', { static: false, read: NgModel }) nameVarAsNgModel;
       @ContentChild('nameInput', { read: ElementRef }) nameVarAsElemRef;
 
-      @ContentChildren('nameInput') children;
-
       ngAfterContentInit() {
         console.log('1 => ', this.nameVar.nativeElement);
         console.log('2 => ', this.nameVarAsNgModel.control);
         console.log('3 => ', this.nameVarAsElemRef.nativeElement);
-
-        console.log('4 => ', this.children);
-        console.log('5 => ', this.children.length);
       }
     }
     
