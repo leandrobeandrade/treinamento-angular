@@ -164,9 +164,9 @@ Prove acesso a dados presentes em `Diretivas`, `Componentes filhos` e `Elementos
     // Componente Pai
     
     // HTML
-    <hello name="{{ name }}"></hello>
-    <hello name="{{ name }}"></hello>
-    <hello name="{{ name }}"></hello>
+    <child-app val="{{ name }}"></child-app>
+    <child-app val="{{ name }}"></child-app>
+    <child-app [val]="name"></child-app>
     
     // Classe
     name = 'Fulano';
@@ -221,44 +221,164 @@ Prove acesso a dados presentes em `Diretivas`, `Componentes filhos` e `Elementos
 
 ### @ContentChildren()
 
-Prove acesso a dados presentes em `Diretivas`, `Componentes filhos` e `Elementos no DOM`. Ao contrário do **@ViewChild()**, é utilizado para acessar vários elementos. A resposta da lista de elementos será sempre um **`QueryList`** que será atualizado sempre que qualquer elemento filho for adicionado, atualizado ou removido da árvore HTML DOM.
+Prove acesso a dados presentes em `Diretivas`, `Componentes filhos` e `Elementos no DOM`. Ao contrário do **@ContentChild()**, é utilizado para acessar vários elementos. A resposta da lista de elementos será sempre um **`QueryList`** que será atualizado sempre que qualquer elemento filho for adicionado, atualizado ou removido da árvore HTML DOM.
 
-    @ContentChildren(myFatherComponent) myChildComponents;
+    // Componente Message
+    @Component({
+      selector: 'app-message',
+      template: '<p>{{ message }}</p>',
+    })
+    export class MessageComponent {
+      @Input() message: string;
+    }
     
-#################
-first: returns the first item in the list.
-last: get the last item in the list.
-length: get the length of the items.
-changes: Is an observable. It emits a new value, whenever the Angular adds, removes or moves the child elements.
-It also supports JavaScript array methods like map(), filter() , find(), reduce(), forEach(), some(). etc
-################
+    // Componente MessageContainer
+    @Component({
+      selector: 'app-message-container',
+      template: `
+        <h3>{{ greetMessage }}</h3>
+        <ng-content></ng-content>
+      `,
+    })
+    export class MessageContainerComponent implements AfterContentInit {
+      greetMessage = 'Componente message-container';
+
+      @ContentChildren(MessageComponent)
+      messageComponent: QueryList<MessageComponent>;
+
+      ngAfterContentInit() {
+        this.messageComponent.forEach((m, i) => {
+          m.message = `Componente message: ${i + 1}`;
+        });
+
+        console.log(this.messageComponent.length);
+      }
+    }
+    
+    // Componente Pai
+    @Component({
+      selector: 'my-app',
+      template: `
+        <app-message-container>
+          <app-message></app-message>
+          <app-message></app-message>
+        </app-message-container>
+      `,
+    })
+    export class AppComponent {}
+
+> Propriedades
+
+- **selector -** O tipo de diretiva ou o nome usado para consulta.
+- **read -** Usado para ler um token diferente dos elementos consultados.
+- **static -** True resolve os resultados da consulta antes da execução da detecção de alterações e false resolve depois. O padrão é falso.
+
+> Propriedades **QueryList**
+
+- **first -** retorna o primeiro item da lista
+- **last -** obtém o último item da lista
+- **length -** obtém o comprimento dos itens
+- **changes -** É um observável. Ele emite um novo valor, sempre que o Angular adiciona, remove ou move os elementos filhos
+- Também suporta métodos padrões de array JavaScript como map(), filter(), find(), reduce(), forEach(), some(), etc...
 
 ### @Input()
 
-Declara uma propriedade de entrada que você pode atualizar por meio de vinculação de propriedade. 
+Declara uma propriedade de entrada que você pode atualizar por meio de vinculação de propriedade **`property binding`**. Prove comunicação dos dados **`de`** componentes pais **`para`** componentes filhos e diretivas. Recebe dados.
 
-    @Input() myProperty: string;
+    // Componente filho
+    
+    // HTML
+    <p>O item atual é: {{ item }}</p>
+    
+    // Classe
+    export class ChildComponent {
+      @Input() item: string;
+    }
+    
+    // Componente Pai
+    
+    // HTML
+    <app-child [item]="currentItem"></app-child>
+    
+    // Classe
+    export class AppComponent {
+      currentItem = 'Geladeira';
+    }
+    
+    // Saída
+    <p>O item atual é: Geladeira</p>
+    
+> Utiliza o ciclo de vida **onChanges** para observar alterações na propriedade
 
-    <my-cmp [myProperty]="someExpression">
+> Para se utilizar uma propriedade com nome no template diferente do da classe basta passar o nome que será utlizado no template entre os parentêses
 
 ### @Output()
 
-Declara uma propriedade de saída que dispara eventos que você pode assinar com uma associação de evento, ver exemplo completo [aqui](https://www.google.com):
+Declara uma propriedade de saída que dispara eventos que você pode assinar com uma associação de evento. Prove comunicação de dados **`de`** componentes filhos e diretivas **`para`** componentes pais. Envia dados
 
-    myEvent = new EventEmitter();
+    // Componente filho
     
-    <my-cmp (myEvent)="doSomething()">
+    // HTML
+    <button (click)="sendMsg('Olá Mundo!')">Enviar mensagem</button>
+    
+    // Classe
+    export class ChildComponent {
+      @Output() msg = new EventEmitter<string>();
+    }
+    
+    sendMsg(val: string) {
+      this.msg.emit(val);
+    }
+
+    // Componente Pai
+    
+    // HTML
+    <app-child (msg)="showMessage($event)"></app-child>
+
+    // Classe
+    export class AppComponent {
+      
+      showMessage(val: string) {
+        console.log(val);           // Olá Mundo!
+      }
+    }
     
 ### @HostBinding()
-Vincula uma propriedade de elemento de host **(classe `valid`)** a uma propriedade de diretiva/componente **isValid**, ver exemplo completo [aqui](https://www.google.com):
 
-     @HostBinding('class.valid') isValid;
+Declara uma associação de propriedade de host que teram verificadas automaticamente as associações de propriedade do host durante a detecção de alterações. Se uma vinculação for alterada, ela atualizará o elemento host da diretiva.
+
+    
 
 ### @HostListener()
-Inscreve-se em um evento de elemento de host **(`click`)** com um método de diretiva/componente **onClick**, passando opcionalmente um argumento `($event)`, ver exemplo completo [aqui](https://www.google.com):
 
-    @HostListener('click', ['$event']) onClick(e) {
-        ...
+Declara um ouvinte de host que invocará o método decorado quando o elemento host emitir o evento especificado, o ouvinte escutará o evento emitido pelo elemento host que é declarado.
+
+    // Diretiva
+    @Directive({
+      selector: '[hostListen]'
+    })
+    export class HtlisDirective {
+
+      constructor(private el: ElementRef, private renderer: Renderer2) {
+        renderer.setStyle(el.nativeElement, 'backgroundColor', 'gray');
+      }
+
+      @HostListener('mouseover') onMouseOver() {
+        const part = this.el.nativeElement.querySelector('.card-text');
+        this.renderer.setStyle(part, 'display', 'block');
+      }
+
+      @HostListener('mouseout') onMouseOut() {
+        const part = this.el.nativeElement.querySelector('.card-text');
+        this.renderer.setStyle(part, 'display', 'none');
+      }
+
     }
+    
+    // Componente
+    <div class="card card-block" hostListen>
+      <h4 class="card-title">Título</h4>
+      <p class="card-text" [style.display]="'none'">Conteúdo</p>
+    </div>
 
 > LINK DE REFERÊNCIA: https://angular.io/guide/cheatsheet
