@@ -4,7 +4,7 @@
 
 > Interpolação
 
-Consiste na comunicação `unidirecional` de dados, comunicação esta sendo a partir da Classe para o Template
+Consiste na comunicação **`unidirecional`** de dados, comunicação esta sendo a partir `da` Classe `para` o Template
 
     // Classe
     example = 'Este texto será renderizado na tela!';
@@ -17,7 +17,7 @@ Consiste na comunicação `unidirecional` de dados, comunicação esta sendo a p
     
 > Property Binding
 
-Consiste na comunicação `unidirecional` de dados, comunicação esta sendo a partir da Classe para o Template, porém, utilizado dentro de qualquer `tag` HTML válida que seja manipuladora de dados através de suas propriedades
+Consiste na comunicação **`unidirecional`** de dados, comunicação esta sendo a partir `da` Classe  `para` o Template, porém, utilizado dentro de qualquer `tag` HTML válida que seja manipuladora de dados através de suas propriedades
 
     // HTML
     <input type="text" [value]="example" />
@@ -27,7 +27,7 @@ Consiste na comunicação `unidirecional` de dados, comunicação esta sendo a p
     
 > Event Binding
 
-Consiste na vinculação de eventos a partir do Template ligados à métodos da Classe. Eventos Html possuem `interfaces` que podem ser utilizadas na Classe, podendo-se ver qual interface corresponde aquele elemento pelo próprio log do console no browser 
+Consiste na vinculação de eventos `a partir` do Template ligados à métodos `da Classe`. Eventos Html possuem `interfaces` que podem ser utilizadas na Classe, podendo-se ver qual interface corresponde aquele elemento pelo próprio log do console no browser 
     
     // HTML
     <button (click)="mostrarAlerta()">Mostrar alerta</button>
@@ -41,7 +41,7 @@ Consiste na vinculação de eventos a partir do Template ligados à métodos da 
     
 > Two-way Binding
 
-Consiste na comunicação `bidirecional` de dados por propriedade, comunicação esta entre Template/Classe e vice-versa através da diretiva **`ngModel`**, tendo a diretiva um evento epecífico chamado **ngModelChange()** que atualiza os valores referentes aquela propriedade quando a mesma sofre alguma alteração
+Consiste na comunicação **`bidirecional`** de dados por propriedade, comunicação esta entre Template/Classe e vice-versa através da diretiva **`ngModel`**, tendo a diretiva um evento epecífico chamado **ngModelChange()** que atualiza os valores referentes aquela propriedade quando a mesma sofre alguma alteração
     
     // HTML
     <input type="text" [(ngModel)]="val" (ngModelChange)="changeVal($event)" />
@@ -57,7 +57,7 @@ Consiste na comunicação `bidirecional` de dados por propriedade, comunicação
     
 > Template Variable
 
-Variáveis de Template são utilizadas como armazenadores de dados relacionados ao Template, que podem ser utilizados para condições e validações de dados entre outras funcionalidades
+Variáveis de Template são utilizadas como `recipientes` de dados relacionados ao Template, que podem ser utilizados para condições e validações de dados entre outras funcionalidades
     
     // HTML
     <input type="text" value="algo" #entrada_ (input)="entrada = entrada_.value" />
@@ -345,13 +345,45 @@ Declara uma propriedade de saída que dispara eventos que você pode assinar com
     
 ### @HostBinding()
 
-Declara uma associação de propriedade de host que teram verificadas automaticamente as associações de propriedade do host durante a detecção de alterações. Se uma vinculação for alterada, ela atualizará o elemento host da diretiva.
+Declara uma associação de propriedade de host que teram verificadas automaticamente as associações de propriedade do host durante a detecção de alterações. Se uma vinculação for alterada, ela atualizará o elemento host da diretiva. Faz a assosiação entre o elemento HTML e um atributo da diretiva.
 
+    // Diretiva
+    @Directive({
+      selector: '[ngModel]'
+    })
+    export class HtbinDirective {
+
+      constructor(public control: NgModel) { }
+
+      @HostBinding('class.valid') get valid() {
+        return this.control.valid;
+      }
+
+      @HostBinding('class.invalid') get invalid() {
+        return this.control.invalid;
+      }
+    }
     
+    // Componente
+    
+    // HTML
+    <input required [(ngModel)]="prop">
+    
+    // CSS
+    .valid {
+      border: solid 3px green
+    }
+
+    .invalid {
+      border: solid 3px red
+    }
+    
+    // Classe
+    prop: string;
 
 ### @HostListener()
 
-Declara um ouvinte de host que invocará o método decorado quando o elemento host emitir o evento especificado, o ouvinte escutará o evento emitido pelo elemento host que é declarado.
+Declara um ouvinte de host que invocará o método decorado quando o elemento host emitir o evento especificado, o ouvinte escutará o evento emitido pelo elemento host que é declarado. Escuta o evento relacionado ao elemento hospedeiro.
 
     // Diretiva
     @Directive({
@@ -380,5 +412,17 @@ Declara um ouvinte de host que invocará o método decorado quando o elemento ho
       <h4 class="card-title">Título</h4>
       <p class="card-text" [style.display]="'none'">Conteúdo</p>
     </div>
+    
+> ElementRef acessa a refrência de elementos no DOM pelo propriedade **nativeElement**, sendo necessário injetar no construtor o ElementRef `porém não é recomendado`
+
+    constructor(elementRef: ElementRef) {}
+    
+    this.elementRef.nativeElement.style.backgroundColor = 'red';
+
+> No lugar de utilizar ElementRef para modificar elementos do DOM diretamente, pode se utilizar a classe **Renderer2** que cria um invólucro ao redor do elemento
+
+    constructor(private el: ElementRef, private renderer: Renderer2) {}
+    
+    this.renderer.setElementStyle(this.elementRef.nativeElement, 'background-color', 'red');
 
 > LINK DE REFERÊNCIA: https://angular.io/guide/cheatsheet
