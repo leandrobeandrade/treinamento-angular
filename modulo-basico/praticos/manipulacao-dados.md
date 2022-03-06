@@ -25,6 +25,11 @@ Consiste na comunicação **`unidirecional`** de dados, comunicação esta sendo
     // Classe
     example = 'Este texto será renderizado na tela!';
     
+**OBS:** Para utilização de property binding em atributos especias como **`data`** e **`colspan`** é necessário inserir `attr` antes da propriedade HTML
+
+    [attr.data-target]="algo"
+    [attr.colspan]="algo"
+    
 > Event Binding
 
 Consiste na vinculação de eventos `a partir` do Template ligados à métodos `da Classe`. Eventos Html possuem `interfaces` que podem ser utilizadas na Classe, podendo-se ver qual interface corresponde aquele elemento pelo próprio log do console no browser 
