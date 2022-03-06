@@ -18,6 +18,8 @@ Vincula dinâmicamente a presença de classes `CSS` no elemento à veracidade do
     
 > Inserção de classe por função
 
+    <div [ngClass]="{'my_class1': func() }"> ... </div>
+
     <div [ngClass]="func() ? 'my_class1' : 'my_class2'"> ... </div>
     
     <div [ngClass]="{'val1': 'my_class1', 'val2': 'my_class2'}[func()]"> ... </div>
