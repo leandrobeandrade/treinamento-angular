@@ -4,7 +4,7 @@ Diretivas são propriedades que são inseridas em tags HTML que proporcionam for
 
 ### Diretivas Padrão - Controle
 
-São fornecidas pelo próprio Angular afim de proporcionar controle de diversos modos e maneiras de elementos e dados do componente.
+São fornecidas pelo próprio Angular afim de proporcionar controle de diversas maneiras sobre elementos e dados do componente.
 
 > ngIf
 
@@ -21,11 +21,11 @@ Remove ou recria uma parte da árvore DOM com base na expressão da condicional.
 
 > ngFor
 
-Percorre dados **iteráveis** como arrays e registra cada elemento em uma variável de controle assim também com um `index`
+Percorre dados **iteráveis** como arrays e registra cada elemento em uma variável de controle assim como um `index` para cada elemento
     
     // HTML
     <ul>
-      <li *ngFor="let item of items">{{ item.id }} - {{ item.name }}</li>
+      <li *ngFor="let item of items; let i = index">{{ item.id }} - {{ item.name }}</li>
     </ul>
     
     // Classe
@@ -114,7 +114,7 @@ Define um template que não é renderizado por padrão. Podendo ter sua definiç
         <p>Alguma coisa ...</p>
     </div>
     
-    <ng-template>
+    <ng-template #template>
         <p>Outra coisa ...</p>
     </ng-template>
     
