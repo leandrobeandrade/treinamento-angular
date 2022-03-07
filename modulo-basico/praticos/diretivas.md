@@ -1,14 +1,14 @@
 ## Diretivas Padrão e Personalizdas
 
-Diretivas são propriedades que são inseridas em tags HTML que proporcionam maneiras de controles tanto para dados como para elementos inseridos no DOM.
+Diretivas são propriedades que são inseridas em tags HTML que proporcionam formas de controles tanto para dados como para elementos inseridos no DOM.
 
-> Diretivas Padrão
+### Diretivas Padrão - Controle
 
-São fornecidas pelo próprio Angular afim de proporcionar controle de diversos modos e maneiras de elementos e dados do componente
+São fornecidas pelo próprio Angular afim de proporcionar controle de diversos modos e maneiras de elementos e dados do componente.
 
-### ngIf
+> ngIf
 
-Remove ou recria uma parte da árvore DOM com base na expressão da condicional. Utilizada em conjunto com **`else`** juntamente com a diretiva `ng-template`.
+Remove ou recria uma parte da árvore DOM com base na expressão da condicional. Utilizada em conjunto com **`else`** juntamente com a diretiva `ng-template`
 
     // HTML
     <div *ngIf="control"> ... </div>
@@ -19,9 +19,9 @@ Remove ou recria uma parte da árvore DOM com base na expressão da condicional.
     // Classe
     control: boolean;
 
-### ngFor
+> ngFor
 
-Percorre dados iteráveis como arrays e registra cada elemento em uma variável de controle assim também com um index.
+Percorre dados **iteráveis** como arrays e registra cada elemento em uma variável de controle assim também com um `index`
     
     // HTML
     <ul>
@@ -31,13 +31,23 @@ Percorre dados iteráveis como arrays e registra cada elemento em uma variável 
     // Classe
     items = [{ id: 1, name: 'Banana' }, { id: 2, name: 'Maçã' }, { id: 3, nome: 'Abacaxi' }];
     
-> tackById
+**trackBy**
     
-Uma função opcionalmente passada para a NgForOfdiretiva para personalizar como NgForOfidentifica exclusivamente itens em um iterável
+Uma função opcionalmente passada para a diretiva ngFor para personalizar como serão identificados itens exclusivos em um iterável. Permite atualizar dados na tela conforme o dado for atualizado não atualizando toda a lista. Informações a mais relacionadas a função [trackBy](https://stackoverflow.com/questions/49881607/angular-efficiently-using-trackby-with-ngfor).
 
-### ngSwitch
+    // HTML
+    <div *ngFor="let item of items; trackBy:identify">
+      Id: {{ item.id }} Name:{{ item.name }}
+    </div>
 
-Troca condicionalmente o conteúdo do div selecionando por um dos modelos incorporados com base no valor atual da condição.
+    // Classe
+    identify(index: number, item: Item): number {
+      return item.id;
+    }
+
+> ngSwitch
+
+Troca condicionalmente o conteúdo do div selecionando por um dos modelos incorporados com base no valor atual da condição
 
     // HTML
     <div [ngSwitch]="control">
@@ -49,9 +59,9 @@ Troca condicionalmente o conteúdo do div selecionando por um dos modelos incorp
     // Classe
     control = 'A';
 
-### ngPlural
+> ngPlural
 
-Adiciona/remove subárvores DOM com base em um valor numérico. Sob medida para a pluralização.
+Adiciona/remove subárvores DOM com base em um valor numérico. Sob medida para a pluralização
     
     // HTML
     <div [ngPlural]="value">
@@ -62,13 +72,110 @@ Adiciona/remove subárvores DOM com base em um valor numérico. Sob medida para 
     // Classe
     value = 0;
     
+### Diretivas Padrão - Conteúdo
 
+São fornecidas para controle de conteúdo e consequentemente de dados entre os componentes.
 
-> Diretivas Personalizadas
+> ng-content
 
-Criam interações diversas entre elementos HTML inseridos no DOM, manipulando e controlando comportamentos e dados dos componentes
+Utilizado para projeção de conteúdo, permite passar **qualquer** conteúdo entre as tags de abertura e fechamento do componente criado
 
-### Diretiva
+    // Componente 1
+    
+    // HTML
+    <div>
+      <h1>
+        <ng-content select="[title]"></ng-content>
+      </h1>
+
+      <p>
+        <ng-content select="[description]"></ng-content>
+      </p>
+    </div>
+    
+    // Componente 2
+    
+    // HTML
+    <app-comp1>
+      <span title>Título</span>
+      <span description>Description</span>
+    </app-comp1>
+    
+**select**
+
+Utilizado para referenciar e assim diferenciar elementos HTML para serem renderizados através de um `ng-content`.
+
+> ng-template
+
+Define um template que não é renderizado por padrão. Podendo ter sua definição no template HTML sendo feita direta ou indiretamente
+
+    // HTML
+    <div *ngIf="control; else template">
+        <p>Alguma coisa ...</p>
+    </div>
+    
+    <ng-template>
+        <p>Outra coisa ...</p>
+    </ng-template>
+    
+> ng-container
+
+Funciona como um elemento especial que pode conter diretivas estruturais sem adicionar novos elementos ao DOM
+
+    <div *ngIf="control" *ngFor="let item of items"> ... </div>     ERRO DE SINTAXE
+    
+    <ng-container *ngIf="control>
+        <div  *ngFor="let item of items"> ... </div>     OK
+    </ng-container>
+    
+> router-outlet
+
+Atua como um espaço reservado que o Angular preenche dinamicamente com base no estado atual do roteador
+
+    // HTML - Classe Pai
+    <a routerLink="A">Página A</a>
+    <a routerLink="B">Página B</a>
+
+    <br />
+
+    <a [routerLink]="[{ outlets: { secondRouter: ['C'] } }]">Página C</a>
+    <a [routerLink]="[{ outlets: { secondRouter: ['D'] } }]">Página D</a>
+
+    <router-outlet></router-outlet>
+    <router-outlet name="secondRouter"></router-outlet>
+    
+    // Classes - Filhas
+    @Component({
+      selector: 'app-a',
+      template: '<h1>Conteúdo Página A</h1>',
+    })
+    export class AComponent {}
+
+    @Component({
+      selector: 'app-b',
+      template: '<h1>Conteúdo Página B</h1>',
+    })
+    export class BComponent {}
+
+    @Component({
+      selector: 'app-c',
+      template: '<h1>Conteúdo Página C</h1>',
+    })
+    export class CComponent {}
+
+    @Component({
+      selector: 'app-d',
+      template: '<h1>Conteúdo Página D</h1>',
+    })
+    export class DComponent {}
+    
+**OBS:** Mais sobre `router-outlet` no módulo intermediário sobre **`rotas`**
+    
+### Diretivas Personalizadas
+
+Criam interações diversas entre elementos HTML inseridos no DOM, manipulando e controlando comportamentos e dados dos componentes.
+
+#### Diretiva
 
     import { Directive, ElementRef, HostListener, Input, Renderer2 } from '@angular/core';
 
@@ -94,7 +201,7 @@ Criam interações diversas entre elementos HTML inseridos no DOM, manipulando e
       }
     }
     
- ### Componente
+#### Componente
  
     // HTML
     <div>
