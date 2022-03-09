@@ -1,11 +1,10 @@
 ## Módulo Angular
 
-Arquivo responsável por gerenciar toda a estrutura dos componentes (classe, serviços, diretivas) internos, assim como bibliotecas externas 
-
+Arquivo responsável por gerenciar toda a estrutura dos componentes (classe, serviços, diretivas) internos, assim como bibliotecas externas.
 
 ### Descrição @NgModule()
 
-> Define um módulo que contém componentes, diretivas, pipes e providers.
+> Define um módulo que contém componentes, diretivas, pipes e providers
 
     import { NgModule } from '@angular/core';
 
@@ -59,5 +58,45 @@ Arquivo responsável por gerenciar toda a estrutura dos componentes (classe, ser
 
       jit?: true
       
-> LINK DE REFERÊNCIA: https://angular.io/api/core/NgModule
+### Sharing Module
+
+A criação de módulos compartilhados permite organizar e otimizar o código. Você pode colocar diretivas, pipes e componentes comumente usados em um módulo e, em seguida, importar apenas esse módulo sempre que precisar em outras partes de seu aplicativo.
+
+    import { CommonModule } from '@angular/common';
+    import { NgModule } from '@angular/core';
+    import { FormsModule } from '@angular/forms';
+    import { CustomerComponent } from './customer.component';
+    import { NewItemDirective } from './new-item.directive';
+    import { OrdersPipe } from './orders.pipe';
+
+    @NgModule({
+     imports:      [ CommonModule ],
+     declarations: [ CustomerComponent, NewItemDirective, OrdersPipe ],
+     exports:      [ CustomerComponent, NewItemDirective, OrdersPipe, CommonModule, FormsModule ]
+    })
+    export class SharedModule { }
+    
+Ao reexportar `CommonModule` e `FormsModule`, qualquer outro módulo que importe **SharedModule**, obtém acesso a diretivas como *NgIf* e *NgFor* do CommonModule e pode vincular a propriedades do componente com, uma diretiva no arquivo.
+
+#### Exemplo:
+
+- 1 - Declarar e exportar o componente em um módulo
+    
+      ...
+      declarations: [ ..., AlgumComponent ],
+      exporst: [ ..., AlgumComponent ]
+      
+      export class ExemploModule
+
+- 2 - Importar no outro módulo o módulo que foi declarado o componente a ser compartilhado
+      
+      ...
+      imports: [ ..., ExemploModule ]
+      
+      export class OutroModule
+      
+LINKS DE REFERÊNCIA
+
+- https://angular.io/api/core/NgModule
+- https://angular.io/guide/sharing-ngmodules
 
