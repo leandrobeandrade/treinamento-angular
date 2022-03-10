@@ -47,6 +47,7 @@ Descritivo do fluxo e tópicos a serem abordados durante o treinamento de Angula
 - [SCSS](https://github.com/leandrobeandrade/treinamento-angular/blob/main/modulo-basico/scss.md)
 - [Classe](https://github.com/leandrobeandrade/treinamento-angular/blob/main/modulo-basico/classe.md)
 - [Módulos](https://github.com/leandrobeandrade/treinamento-angular/blob/main/modulo-basico/modulos.md)
+- [Serviços](https://github.com/leandrobeandrade/treinamento-angular/blob/main/modulo-basico/servicos.md)
 - [Diretivas](https://github.com/leandrobeandrade/treinamento-angular/blob/main/modulo-basico/diretivas.md)
 - [Pipes](https://github.com/leandrobeandrade/treinamento-angular/blob/main/modulo-basico/pipes.md)
       
@@ -62,6 +63,7 @@ Descritivo do fluxo e tópicos a serem abordados durante o treinamento de Angula
 - [Manipulação e Controle de Estilos](https://github.com/leandrobeandrade/treinamento-angular/blob/main/modulo-basico/praticos/manipulacao-estilos.md)
 - [Diretivas Padrão e Personalizadas](https://github.com/leandrobeandrade/treinamento-angular/blob/main/modulo-basico/praticos/diretivas.md)
 - [Pipes](https://github.com/leandrobeandrade/treinamento-angular/blob/main/modulo-basico/praticos/pipes.md)
+- [Serviços](https://github.com/leandrobeandrade/treinamento-angular/blob/main/modulo-basico/praticos/servicos.md)
 
 > Bibliotecas
         
