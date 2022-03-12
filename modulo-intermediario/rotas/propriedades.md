@@ -132,11 +132,11 @@ Define os parâmetros de consulta para a URL.
 
 - Via Componente
 
-    this.router.navigate(['/user'], { queryParams: { page: 1 } });           // Navega para /user?page=1
+      this.router.navigate(['/user'], { queryParams: { page: 1 } });           // Navega para /user?page=1
     
 - Via Template
         
-     <a [routerLink]="['/user']" [queryParams]="{debug: true}">link</a>      // Navega para /user?page=1
+      <a [routerLink]="['/user']" [queryParams]="{debug: true}">link</a>      // Navega para /user?page=1
 
 ### fragment?: string
 
@@ -144,11 +144,11 @@ Define o fragmento de hash para a URL.
 
 - Via Componente
  
-    this.router.navigate(['/user'], { fragment: 'top' });                    // Navega para /user#top
+      this.router.navigate(['/user'], { fragment: 'top' });                    // Navega para /user#top
     
 - Via Template
 
-    <a [routerLink]="['/user']" fragment="top">link</a>                      // Navega para /user#top
+      <a [routerLink]="['/user']" fragment="top">link</a>                      // Navega para /user#top
 
 ### queryParamsHandling?: QueryParamsHandling | null
 
@@ -156,15 +156,16 @@ Gerencia os parâmetros de consulta no link do roteador para a próxima navegaç
 
 - Via Componente
 
-    // de /user?page=1 para /other?page=1
-    this.router.navigate(['/other'], { queryParams: { page: 2 },  queryParamsHandling: "preserve"});
+      // de /user?page=1 para /other?page=1
+      this.router.navigate(['/other'], { queryParams: { page: 2 },  queryParamsHandling: "preserve"});
     
-    // de /user?page=1 para /other?page=1&otherKey=2
-    this.router.navigate(['/other'], { queryParams: { otherKey: 2 },  queryParamsHandling: "merge"});
+      // de /user?page=1 para /other?page=1&otherKey=2
+      this.router.navigate(['/other'], { queryParams: { otherKey: 2 },  queryParamsHandling: "merge"});
   
 - Via Template
 
-    <a [routerLink]="['/user/bob']" [queryParams]="{debug: true}" queryParamsHandling="merge">link</a>
+      // de /user?page=1 para /other?page=1&otherKey=2
+      <a [routerLink]="['/other']" [queryParams]="{otherKey: true}" queryParamsHandling="merge">link</a>
 
 ### preserveFragment: boolean
 
