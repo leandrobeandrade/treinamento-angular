@@ -94,6 +94,10 @@ Padrão determinado para parâmetros passados diretamente nas rotas: `dashboard?
       
       { path: 'dashboard', component: DashboardComponent },
       
+- passagem do(s) parâmetro(s) pelo Template
+      
+      <a [routerLink]="['/dashboard', { id: id }]">Dashboard</a>
+      
 - passagem do(s) parâmetro(s) pelo componente
 
       constructor(private router: Router, private activatedRoute: ActivatedRoute) {}
