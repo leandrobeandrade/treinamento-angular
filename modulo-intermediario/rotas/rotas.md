@@ -93,7 +93,6 @@ Padrão determinado para parâmetros passados diretamente nas rotas: `dashboard?
 - configuração dos parâmetros na rota
       
       { path: 'dashboard', component: DashboardComponent },
-      { path: 'dashboard', component: DashboardComponent }
       
 - passagem do(s) parâmetro(s) pelo componente
 
@@ -114,7 +113,3 @@ Padrão determinado para parâmetros passados diretamente nas rotas: `dashboard?
 
 - [router](https://angular.io/guide/router)
 - [route](https://angular.io/api/router/Route)
-
-
-
-
