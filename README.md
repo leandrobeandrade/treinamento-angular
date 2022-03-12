@@ -76,7 +76,7 @@ Descritivo do fluxo e tópicos a serem abordados durante o treinamento de Angula
 > Rotas
 
 - [Configuração](https://github.com/leandrobeandrade/treinamento-angular/blob/main/modulo-intermediario/rotas/configuracoes.md)
-- [Propriedades](https://github.com/leandrobeandrade/treinamento-angular/blob/main/modulo-intermediario/rotas/rotas.md)
+- [Propriedades](https://github.com/leandrobeandrade/treinamento-angular/blob/main/modulo-intermediario/rotas/propriedades.md)
 
 > Formulários
 
@@ -87,9 +87,7 @@ Descritivo do fluxo e tópicos a serem abordados durante o treinamento de Angula
 
 > Componentes Internos
 
-- [Componente QR Code](https://github.com/leandrobeandrade/treinamento-angular/blob/main/modulo-interno/componentes.md)
-- [Componente Imagem](https://github.com/leandrobeandrade/treinamento-angular/blob/main/modulo-interno/componentes.md)
-- [Componente Smart Select, etc...](https://github.com/leandrobeandrade/treinamento-angular/blob/main/modulo-interno/componentes.md)
+- [Componentes Utilizados](https://github.com/leandrobeandrade/treinamento-angular/blob/main/modulo-interno/componentes.md)
     
 ## Módulo Avançado
     
