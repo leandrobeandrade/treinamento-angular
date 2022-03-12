@@ -1,4 +1,4 @@
-## Rotas
+## Configurações de Rotas
 
 Angular fornece uma arquitetura de gerenciamento e controle de roteamento completo para ser utilizado cobrindo as mais diversas formas de roteamento presentes em um aplicação.
 O Framework por si já é totalmente baseado em modularização, e as rotas não são diferentes, o desejável é que cada módulo de funcionalidade criado na aplicação possua um módulo de roteamento para os componentes presentes neste módulo de funcionalidades.
@@ -110,6 +110,42 @@ Padrão determinado para parâmetros passados diretamente nas rotas: `dashboard?
       this.activatedRoute.queryParams.subscribe((queryParams) => {
         this.id = Number(queryParams['id']);
       });
+      
+### Carregamento de rotas filhas
+
+Sempre declarar as rotas no módulo raíz como sendo **`forRoot(routes)`**, pois este o módulo raíz que alimenta toda a aplicação e declarar **`forChild(routes)`** para todos os  outros módulos de rotas.
+
+### Guardas de rotas - Guards
+
+As guardas de rotas são cumulativas, ou seja, você pode ter vários arquivos de guardas, e todos eles seguem um mesmo padrão, implementam `CanActivate` e tem um método apenas, chamado também **`CanActivate`**, que retorna verdadeiro ou falso, informando se o usuário pode ou não chegar a esta página.
+
+      // Arquivo de guarda
+      import { CanActivate } from '@angular/router';
+      import { Injectable } from '@angular/core';
+
+      @Injectable()
+      export class SampleGuard implements CanActivate {
+        canActivate() {
+          return false;
+        }
+      }
+      
+      // AppModule
+      providers: [SampleGuard],
+
+      const routes: Routes = [
+        { path: 'login', component: LoginComponent },
+        { path: 'signup', component: SignupComponent },
+        {
+          path: 'master',
+          component: MasterComponent,
+          canActivate: [SampleGuard],
+          children: [
+            { path: 'home', component: HomeComponent },
+            { path: 'reports', component: ReportsComponent },
+          ],
+        },
+      ];
 
 - [router](https://angular.io/guide/router)
 - [route](https://angular.io/api/router/Route)
