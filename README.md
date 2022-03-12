@@ -75,8 +75,8 @@ Descritivo do fluxo e tópicos a serem abordados durante o treinamento de Angula
 
 > Rotas
 
-- Configuração
-- Propriedades
+- [Configuração](https://github.com/leandrobeandrade/treinamento-angular/blob/main/modulo-intermediario/rotas/configuracoes.md)
+- [Propriedades](https://github.com/leandrobeandrade/treinamento-angular/blob/main/modulo-intermediario/rotas/rotas.md)
 
 > Formulários
 
