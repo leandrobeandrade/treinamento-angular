@@ -110,11 +110,18 @@ Um array de objetos `Route` de rotas filhas que especifica uma configuração de
 
 ### loadChildren?: LoadChildren
   
-Um objeto que especifica rotas filho de carregamento lento **`(lazy loading)`**.
+Um objeto que especifica rotas filho de carregamento lento **`(lazy loading)`**. Rotas que fazem lazy loading tem o path do seu **routing.module** vazio `path: ''`
   
+    // Módulo de roteamento pai
     [{
-      path: 'lazy',
-      loadChildren: () => import('./lazy-route/lazy.module').then(mod => mod.LazyModule),
+      path: 'child',
+      loadChildren: () => import('./child/child.module').then(mod => mod.ChildModule),
+    }];
+    
+    // Módulo de roteamento filho
+    [{
+      path: '',
+      componente: ChildComponent
     }];
 
 ### runGuardsAndResolvers?: RunGuardsAndResolvers
