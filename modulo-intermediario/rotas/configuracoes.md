@@ -119,6 +119,19 @@ Padrão determinado para parâmetros passados diretamente nas rotas: `dashboard?
 
 Sempre declarar as rotas no módulo raíz como sendo **`forRoot(routes)`**, pois este o módulo raíz que alimenta toda a aplicação e declarar **`forChild(routes)`** para todos os  outros módulos de rotas.
 
+> children
+
+Propriedade declarada dentro de módulos de roteamento filhos que fornece configuração para esta rotas. Esta propriedade fornece o roteamento interno no componente filho, ou seja, renderiza o componente filho e seus descendentes dentro de um componente pai.
+
+       {
+         path: 'child',
+         component: ChildComponent,
+         children: [
+           { path: 'child-one', component: ChildOneComponent },
+           { path: 'child-two', component: ChildTwoComponent }
+         ],
+       }, 
+
 ### Guardas de rotas - Guards
 
 As guardas de rotas são cumulativas, ou seja, você pode ter vários arquivos de guardas, e todos eles seguem um mesmo padrão, implementam `CanActivate` e tem um método apenas, chamado também **`CanActivate`**, que retorna verdadeiro ou falso, informando se o usuário pode ou não chegar a esta página.
