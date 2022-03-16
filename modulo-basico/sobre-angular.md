@@ -1,7 +1,6 @@
 ## Breve Introdução
 
-> Angular (comumente referido como *"Angular 2+" ou "Angular 2"*) é uma plataforma de aplicações web de código-fonte aberto e front-end baseado em **TypeScript** 
-liderado pela Equipe Angular do Google.
+> [Angular](https://angular.io/) (comumente referido como *"Angular 2+" ou "Angular 2"*) é uma plataforma de aplicações web de código-fonte aberto e front-end baseado em **TypeScript** liderado pela Equipe Angular do Google.
 
 ### Algumas características
 
@@ -45,6 +44,17 @@ da aplicação.
 
 **4. Providers:** Faz a declaração dos serviços, onde, se um módulo for root, eles estarão disponíveis para toda a aplicação
 
+> Módulos mais comumente utilizados
+
+|NgModule                                 |	Importar de               |Por que você usa|
+|-                                        |-                          |-               |
+|BrowserModule                            |	@angular/platform-browser |	Executar o aplicativo em um navegador|
+|CommonModule                             |	@angular/common           |	Utilizar NgIf, NgFor, diretivas em geral|
+|FormsModule                              |	@angular/forms            |	Criar formulários orientados por modelo (inclui NgModel)|
+|ReactiveFormsModule                      |	@angular/forms            |	Criar formulários reativos|
+|RouterModule                             | @angular/router           |	Utilizar RouterLink, .forRoot(), e.forChild()|
+|HttpClientModule                         |	@angular/common/http      |	Integrar com um servidor usando o protocolo HTTP|
+
 #### Two-way data binding
 
 Essa é uma das principais características do framework. O termo pode ser definido como uma associação de dados bidirecional, onde a informação entra através da visualização
@@ -56,3 +66,8 @@ visualização.
 
 Dessa forma, quando um valor de um componente mudar, o próprio framework realizará a atualização na página. A ligação de dados bidirecional combina a entrada e saída em um 
 único processo.
+
+|Referências|
+|-|
+
+- [commom modules](https://angular.io/guide/frequent-ngmodules#browsermodule-and-commonmodule)
