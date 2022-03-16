@@ -80,7 +80,7 @@ Descritivo do fluxo e tópicos a serem abordados durante o treinamento de Angula
 
 > Formulários
 
-- Template Driven
+- [Template Driven](https://github.com/leandrobeandrade/treinamento-angular/blob/main/modulo-intermediario/forms/template-driven.md)
 - Reactive Forms
 
 ## Módulo Interno
