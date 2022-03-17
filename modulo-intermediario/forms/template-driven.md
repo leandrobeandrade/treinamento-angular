@@ -58,7 +58,25 @@ O par **ng-valid/ng-invalid** é particularmente interessante, porque pode carac
 Com a variável de referência de modelo, `#form` para acessar o formulário que contém o botão **Enviar** cria-se uma associação de evento que será vinculado a propriedade do formulário que indica sua validade geral à propriedade desabilitada do botão Enviar.
  
     <button type="submit" class="btn btn-success" [disabled]="!form.valid">Submit</button>
- 
+    
+## NgModel
+
+Propriedade responsável em criar uma instância **`FormoControl`** de um modelo de domínio *(propriedade da classe)* e a associá-lo a um elemento de controle de formulário.
+
+### Descrição
+
+A instância `FormControl` rastreia o valor, a interação do usuário e o status de validação do controle e mantém a exibição sincronizada com o modelo. Se usado em um formulário pai, a diretiva também se registra no formulário como um controle filho. Esta diretiva é usada sozinha ou como parte de um formulário maior.
+
+Se existir uma ligação **unidirecional** para ngModel com sintaxe **`[]`**, alterar o valor do modelo de domínio na classe do componente definirá o valor na exibição. Se você tiver uma ligação bidirecional com a sintaxe **`[()]`** *(também conhecida como 'sintaxe banana-in-a-box')*, o valor na interface do usuário sempre será sincronizado com o modelo de domínio em sua classe **(two-way binding)**.
+
+Para inspecionar as propriedades do FormControl associado (como o estado de validade), exporte a diretiva para uma variável de modelo local usando `ngModel como chave`
+
+    <input type="text" name="age" #myVar="ngModel" [(ngModel)]="user.age" />
+        
+    <div>{{ myVar.value | json }}</div>
+
+Você pode então acessar o controle usando a propriedade control da diretiva. No entanto, as propriedades mais usadas (como valid e dirty) também existem no controle para acesso direto. Veja uma lista completa de propriedades diretamente disponíveis em [AbstractControlDirective](https://angular.io/api/forms/AbstractControlDirective).
+
 |Referências|
 |-|
 
