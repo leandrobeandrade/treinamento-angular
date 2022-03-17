@@ -4,7 +4,7 @@ Em formulários do tipo `Orientado por Template` o form tem sua configuração c
 
 Na construção do formulário o Angular encarrega-se de criar um `Formulário Reativo` por trás do formulário orientado e template para gerenciar e controlar os modelos.
 
-### Desrcrição
+### Descrição
 
 Os formulários controlados por modelo dependem de diretivas definidas no **FormsModule**. A diretiva **`NgModel`** reconcilia as alterações de valor no elemento de formulário anexado com as alterações no modelo de dados, permitindo que você responda à entrada do usuário com validação de entrada e tratamento de erros.
 
@@ -12,11 +12,55 @@ A diretiva `NgForm` cria uma instância **FormGroup** de nível superior e a vin
 
 Para obter acesso ao NgForm e ao status geral do formulário, declare uma variável de referência de modelo.
 
-<form #form="ngForm"> ... </form>
+    <form #form="ngForm"> ... </form>
 
 A variável de modelo form agora é uma referência à instância da diretiva `NgForm` que controla o formulário como um todo.
 
+Ao utilizar **[(ngModel)]** em um elemento, você deve definir um atributo **`name`** para esse elemento. Angular usa o nome atribuído para registrar o elemento com a diretiva NgForm anexada ao elemento pai `<form>`.
+
+#### Estados de controle de rastreamento
+  
+A diretiva NgModel em um controle rastreia o estado desse controle. Ele informa se o usuário tocou no controle, se o valor mudou ou se o valor se tornou inválido. Angular define classes **`CSS`** especiais no elemento de controle para refletir o estado, conforme a tabela a seguir.
+
+|Estado                           | Se verdadeiro |Se falso     |
+|-                                |-              |-            |
+|O controle foi visitado          |ng-touched     |ng-untouched |
+|O valor do controle foi alterado |ng-dirty       |ng-pristine  |
+|O valor do controle é válido     |ng-valid       |ng-invalid   |
+
+Você usa essas classes CSS para definir os estilos para seu controle com base em seu status. Além disso, o Angular aplica a classe **ng-submitted** aos elementos `<form>` após o envio. Esta classe não se aplica a controles internos.
+
+Nas ferramentas de desenvolvedor do navegador, o elemento `<input>` que corresponde ao input correspondente poderá ser visto que o elemento possui várias classes CSS além de "controle de formulário".
+
+    <input ... class="form-control ng-untouched ng-pristine ng-valid" ...>
+    
+#### Criando feedback visual para estados
+
+O par **ng-valid/ng-invalid** é particularmente interessante, porque pode caracterizar um sinal visual forte quando os valores são inválidos. Também podendo marcar os campos como obrigatórios. Você pode marcar campos obrigatórios e dados inválidos ao mesmo tempo com uma barra colorida à esquerda da caixa de entrada por exemplo:
+ 
+![image](https://user-images.githubusercontent.com/24658433/158731835-8de9294a-4b32-4eb1-a9e5-d1e83a32687e.png)
+![image](https://user-images.githubusercontent.com/24658433/158732129-d72a6cb4-f45e-4e77-a7c8-b04223742504.png)
+
+    .ng-valid[required], .ng-valid.required  {
+      border-left: 5px solid #42A948; /* green */
+    }
+
+    .ng-invalid:not(form)  {
+      border-left: 5px solid #a94442; /* red */
+    }
+ 
+ #### Envio do formulário com ngSubmit
+ 
+ O usuário deve ser capaz de enviar o formulário após preenchê-lo. O botão Enviar na parte inferior do formulário não faz nada sozinho, mas aciona um evento de envio de formulário devido ao seu tipo **`(type="submit")`**. Para responder a este evento, vincule a propriedade de evento **ngSubmit** do formulário ao método `onSubmit()` do componente de formulário.
+
+    <form #form="ngForm" (ngSubmit)="onSubmit()">
+ 
+Com a variável de referência de modelo, `#form` para acessar o formulário que contém o botão **Enviar** cria-se uma associação de evento que será vinculado a propriedade do formulário que indica sua validade geral à propriedade desabilitada do botão Enviar.
+ 
+    <button type="submit" class="btn btn-success" [disabled]="!form.valid">Submit</button>
+ 
 |Referências|
 |-|
 
 - [template-driven](https://angular.io/guide/forms)
+- [ngModel](https://angular.io/api/forms/NgModel)
