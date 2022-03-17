@@ -77,6 +77,22 @@ Para inspecionar as propriedades do FormControl associado (como o estado de vali
 
 Você pode então acessar o controle usando a propriedade control da diretiva. No entanto, as propriedades mais usadas (como valid e dirty) também existem no controle para acesso direto. Veja uma lista completa de propriedades diretamente disponíveis em [AbstractControlDirective](https://angular.io/api/forms/AbstractControlDirective).
 
+#### Outras formas de utilização ngModel
+
+É fornecido algumas formas de vinculação de propriedades do componente com elementos de entrada de usuário como `inputs` para gerenciamento dos dados e controle pelo formulário abstrato criado implicitamente pelo Angular.
+
+> Não é vinculado a nenhum model de classe, apenas cria uma propriedade no formulário abstrato
+    
+    <input type="text"  name="nome" ngModel />
+
+> Vincula uma propriedade ao model do componente, mas, não atualiza este model e cria uma propriedade no formulário abstrato
+    
+    <input type="text" name="nome" [ngModel]="user.name" />
+
+> Vincula uma propriedade ao model do componente, mas, não atualiza este model e não cria uma propriedade no formulário abstrato
+    
+    <input type="text" name="name4" [value]="user.name" />
+
 |Referências|
 |-|
 
