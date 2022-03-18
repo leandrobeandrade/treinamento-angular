@@ -28,7 +28,7 @@ A diretiva NgModel em um controle rastreia o estado desse controle. Ele informa 
 |O valor do controle foi alterado |ng-dirty       |ng-pristine  |
 |O valor do controle é válido     |ng-valid       |ng-invalid   |
 
-Você usa essas classes CSS para definir os estilos para seu controle com base em seu status. Além disso, o Angular aplica a classe **ng-submitted** aos elementos `<form>` após o envio. Esta classe não se aplica a controles internos.
+A utilização dessas classes CSS servem para definir os estilos para o controle com base em seu status. Além disso, o Angular aplica a classe **ng-submitted** aos elementos `<form>` após o envio. Esta classe não se aplica a controles internos, apenas leitura.
 
 Nas ferramentas de desenvolvedor do navegador, o elemento `<input>` que corresponde ao input correspondente poderá ser visto que o elemento possui várias classes CSS além de "controle de formulário".
 
@@ -36,7 +36,7 @@ Nas ferramentas de desenvolvedor do navegador, o elemento `<input>` que correspo
     
 #### Criando feedback visual para estados
 
-O par **ng-valid/ng-invalid** é particularmente interessante, porque pode caracterizar um sinal visual forte quando os valores são inválidos. Também podendo marcar os campos como obrigatórios. Você pode marcar campos obrigatórios e dados inválidos ao mesmo tempo com uma barra colorida à esquerda da caixa de entrada por exemplo:
+As classes **ng-valid/ng-invalid** são particularmente interessantes, porque podem caracterizar um sinal visual forte quando os valores são inválidos. Também podendo marcar os campos como obrigatórios. Pode-se marcar campos obrigatórios e dados inválidos ao mesmo tempo com uma barra colorida à esquerda da caixa de entrada por exemplo:
  
 ![image](https://user-images.githubusercontent.com/24658433/158731835-8de9294a-4b32-4eb1-a9e5-d1e83a32687e.png)
 ![image](https://user-images.githubusercontent.com/24658433/158732129-d72a6cb4-f45e-4e77-a7c8-b04223742504.png)
@@ -51,7 +51,7 @@ O par **ng-valid/ng-invalid** é particularmente interessante, porque pode carac
  
  #### Envio do formulário com ngSubmit
  
- O usuário deve ser capaz de enviar o formulário após preenchê-lo. O botão Enviar na parte inferior do formulário não faz nada sozinho, mas aciona um evento de envio de formulário devido ao seu tipo **`(type="submit")`**. Para responder a este evento, vincule a propriedade de evento **ngSubmit** do formulário ao método `onSubmit()` do componente de formulário.
+O usuário deve ser capaz de enviar o formulário após preenchê-lo. O botão Enviar na parte inferior do formulário não faz nada sozinho, mas aciona um evento de envio de formulário devido ao seu tipo **`(type="submit")`**. Para responder a este evento, vincule a propriedade de evento **ngSubmit** do formulário ao método `onSubmit()` do componente de formulário.
 
     <form #form="ngForm" (ngSubmit)="onSubmit()">
  
