@@ -3,6 +3,7 @@
 Em formulários do tipo `Orientado por Template` o form tem sua configuração criada e manipulada no próprio arquivo **HTML**, assim como controle e validações. É criada uma propriedade **`FormGroup`** que fica responsável pelo gerenciamento dos dados através do Template tendo estes valores sendo submetidos por **`ngSubmit`**. 
 
 Na construção do formulário o Angular encarrega-se de criar um `Formulário Reativo` por trás do formulário orientado e template para gerenciar e controlar os modelos.
+Para fazer o uso de formulários do tipo Template é necessário que no módulo seja declarado o módulo de formulário **`FormsModule`**.
 
 ### Descrição
 
