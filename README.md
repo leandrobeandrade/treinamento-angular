@@ -81,7 +81,9 @@ Descritivo do fluxo e tópicos a serem abordados durante o treinamento de Angula
 > Formulários
 
 - [Template Driven](https://github.com/leandrobeandrade/treinamento-angular/blob/main/modulo-intermediario/forms/template-driven.md)
-- [Reactive Forms](https://github.com/leandrobeandrade/treinamento-angular/blob/main/modulo-intermediario/forms/reactive-form.md)
+- Data Driven
+  - [Configurações](https://github.com/leandrobeandrade/treinamento-angular/blob/main/modulo-intermediario/forms/data-driven/configuracoes.md)
+  - [Propriedades](https://github.com/leandrobeandrade/treinamento-angular/blob/main/modulo-intermediario/forms/data-driven/propriedades.md)
 
 ## Módulo Interno
 
