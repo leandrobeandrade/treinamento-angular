@@ -1,4 +1,4 @@
-## Formulários Reativos
+## Formulários Reativos - Configurações
 
 Em formulários do tipo `Orientado a Dados` o form é criado programaticamente e gerenciado dentro da classe do componente assim como validações e controle dos dados. Esse gerenciamento é realizado a partir de uma instância de métodos e sincronizado através de proprieades com o Template. Para fazer o uso de formulários do tipo Reativo é necessário que no módulo seja declarado o módulo de formulário **`ReactiveFormsModule`**.
 
@@ -133,7 +133,7 @@ Constrói um novo FormArray a partir de um determinado conjunto de configuraçõ
         zip: ['']
       }),
       courses: this.fb.array([
-        new FormControl('')
+        this.fb.control('')
       ])
     });
     
