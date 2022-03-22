@@ -249,3 +249,8 @@ Também define as propriedades que são compartilhadas entre todas as subclasses
 - **`hasError()`**
 
 > Informa se o controle com o caminho fornecido tem o erro especificado
+
+|Referências|
+|-|
+
+- [AbstractControl](https://angular.io/api/forms/AbstractControl)
