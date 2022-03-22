@@ -4,7 +4,7 @@ Em formulários do tipo `Orientado a Dados` o form é criado programaticamente e
 
 Os formulários reativos diferem dos formulários orientados por template de forma distinta. Os formulários reativos fornecem acesso síncrono ao modelo de dados, imutabilidade com operadores observáveis e rastreamento de mudanças através de fluxos observáveis.
 
-Os formulários dos tipo reativo fornece três blocos de construção fundamentais, *`FormControl`*, *`FormGroup`* e *`FormArray`*. Estas classes extendem a classe [**AbstractControl**](https://angular.io/api/forms/AbstractControl) que implementa a maior parte das funcionalidades básicas para acessar o valor, status de validação, interações do usuário e eventos.
+Os formulários dos tipo reativo fornece três blocos de construção fundamentais, *`FormControl`*, *`FormGroup`* e *`FormArray`*. Estas classes extendem a classe [**AbstractControl**](https://github.com/leandrobeandrade/treinamento-angular/blob/main/modulo-intermediario/forms/data-driven/abstract-control.md) que implementa a maior parte das funcionalidades básicas para acessar o valor, status de validação, interações do usuário e eventos.
 
 ### FormControl
 
