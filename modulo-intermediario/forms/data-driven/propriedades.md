@@ -131,7 +131,7 @@ Estende a classe AbstractControl que implementa a maior parte da funcionalidade 
 
 > Verifica se há um controle habilitado com o nome fornecido no grupo
 > 
-> Relatórios falsos para controles desabilitados. Para verificar a existência apenas no grupo, usar get() em vez disso
+> Resultados falsos para controles desabilitados. Para verificar a existência apenas no grupo, usar get() em vez disso
 
 #### setValue()
 
@@ -153,7 +153,7 @@ Estende a classe AbstractControl que implementa a maior parte da funcionalidade 
 > 
 > - emitEvent: Quando true ou não fornecido (padrão), os observáveis statusChanges e valueChanges emitem eventos com o status e o valor mais recentes quando o valor de controle é atualizado. Quando false, nenhum evento é emitido. As opções de configuração são passadas para o método updateValueAndValidity
 > 
-> Ele aceita superconjuntos e subconjuntos do grupo sem gerar um erro
+> Aceita superconjuntos e subconjuntos do grupo sem gerar um erro
 
 #### reset()
 
@@ -201,7 +201,9 @@ Um FormArray agrega os valores de cada FormControl filho em um array. Ele calcul
 
 > Remova o controle no índice fornecido no array
 > 
-> emitEvent: Quando true ou não fornecido (padrão), os observáveis statusChanges e valueChanges emitem eventos com o status e o valor mais recentes quando o controle é removido. Quando false, nenhum evento é emitido
+> **Opções**
+> 
+> - emitEvent: Quando true ou não fornecido (padrão), os observáveis statusChanges e valueChanges emitem eventos com o status e o valor mais recentes quando o controle é removido. Quando false, nenhum evento é emitido
 
 #### setControl()
 
@@ -233,9 +235,9 @@ Um FormArray agrega os valores de cada FormControl filho em um array. Ele calcul
 > 
 > - emitEvent: Quando true ou não fornecido (padrão), os observáveis statusChanges e valueChanges emitem eventos com o status e o valor mais recentes quando o valor de controle é atualizado. Quando false, nenhum evento é emitido. As opções de configuração são passadas para o método updateValueAndValidity
 > 
-> Ele aceita superconjuntos e subconjuntos do grupo sem gerar um erro
+> Aceita superconjuntos e subconjuntos do grupo sem gerar um erro
 
-- **`reset()`**
+#### reset()
 
 > Redefine o FormArray e todos os descendentes são marcados como pristine e untouched, e o valor de todos os descendentes para mapas nulos ou nulos
 > 
@@ -247,13 +249,13 @@ Um FormArray agrega os valores de cada FormControl filho em um array. Ele calcul
 > 
 > Redefine para um estado de formulário específico passando um array de estados que corresponde à estrutura do controle. O estado é um valor autônomo ou um objeto de estado de formulário com um valor e um status desabilitado.
 
-- **`getRawValue()`**
+#### getRawValue()
 
 > O valor agregado do array, incluindo quaisquer controles desabilitados
 > 
 > Relata todos os valores, independentemente do status desabilitado. Apenas para controles habilitados, a propriedade value é a melhor maneira de obter o valor do array
 
-- **`clear()`**
+#### clear()
 
 > Remove todos os controles no FormArray
 > 
