@@ -1,6 +1,6 @@
 ## Formulários Reativos - Propriedades
 
-Formulários orientados a dados fornecem diversas maneiras para criação e gerenciamento de elementos de entrada de usuário, podendo este serem manipulados conforme necessidade e momentos oportunos através de classes e métodos utilitários.
+Formulários orientados a dados fornecem diversas maneiras para criação e gerenciamento de elementos de entrada de usuário, podendo serem manipulados conforme necessidade e momento oportuno através de classes e métodos utilitários.
 
 ### Classes
 
@@ -41,7 +41,7 @@ Todas as descrições e funcionalidades fornecidas pelas classes utilitárias. A
 
 ### `FormControl`
 
-Estende a classe AbstractControl que implementa a maior parte da funcionalidade básica para acessar o valor, status de validação, interações do usuário e eventos.
+Um FormControl agrega os valores para cada controle em específico. Estende a classe AbstractControl.
 
 #### setValue()
 
@@ -89,7 +89,7 @@ Estende a classe AbstractControl que implementa a maior parte da funcionalidade 
 
 ### `FormGroup`
 
-Estende a classe AbstractControl que implementa a maior parte da funcionalidade básica para acessar o valor, status de validação, interações do usuário e eventos.
+Um FormGroup agrega os valores de cada FormControl filho em um grupo. Estende a classe AbstractControl.
 
 #### registerControl()
 
@@ -175,7 +175,7 @@ Estende a classe AbstractControl que implementa a maior parte da funcionalidade 
 
 ### `FormArray`
 
-Um FormArray agrega os valores de cada FormControl filho em um array. Ele calcula seu status reduzindo os valores de status de seus filhos. Por exemplo, se um dos controles em um FormArray for inválido, o array inteira se tornará inválido.
+Um FormArray agrega os valores de cada FormControl filho em um array. Ele calcula seu status reduzindo os valores de status de seus filhos. Por exemplo, se um dos controles em um FormArray for inválido, o array inteiro se tornará inválido. Estende a classe AbstractControl.
 
 #### at()
 
