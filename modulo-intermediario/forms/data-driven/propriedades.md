@@ -262,3 +262,10 @@ Um FormArray agrega os valores de cada FormControl filho em um array. Ele calcul
 > **Opções**
 > 
 > - emitEvent: Quando true ou não fornecido (padrão), os observáveis statusChanges e valueChanges emitem eventos com o status e o valor mais recentes quando todos os controles nesta instância de FormArray são removidos. Quando false, nenhum evento é emitido
+
+|Referências|
+|-
+
+- [FormControl](https://angular.io/api/forms/FormControl)
+- [FormGroup](https://angular.io/api/forms/FormGroup)
+- [FormArray](https://angular.io/api/forms/FormArray)
