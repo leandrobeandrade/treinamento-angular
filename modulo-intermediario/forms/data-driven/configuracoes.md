@@ -177,49 +177,40 @@ Constrói um novo FormArray a partir de um determinado conjunto de configuraçõ
     // Classe
     userForm: FormGroup;
     
-    constructor(private fb: formBuilder) {}
-    
-    ngOnInit() {
-      this.courses.push(this.fb.group(dados));
-    }
-    
-    this.user = this.fb.group({
-      name: ['', Validators.required],
-      courses: this.fb.array([])
-    })
-    
-    get courses() {
-      return this.form.get('courses') as FormArray;
-    }
-    
-    compareCourses(course1, course2) {
-      return course1 && course2
-        ? course1.name === course2.name
-        : course1 === course2;
-    }
-    
-    getChosenCourses() {
-      console.log(this.userForm.get('courses').value.name;
-    }
-    
-    // Dados
-    const dados = [
+    aliases_ = [
       { id: 1, name: 'Fulano' },
       { id: 2, name: 'Beltrano' },
       { id: 3, name: 'Ciclano' }
     ]
     
+    constructor(private fb: formBuilder) {}
+    
+    this.user = this.fb.group({
+      name: ['', Validators.required],
+      aliases: []
+    })
+    
+    compareAliases(alias1, alias2) {
+      return alias1 && alias2
+        ? alias1.name === alias2.name
+        : alias1 === alias2;
+    }
+    
+    getChosenAliases() {
+      console.log(this.userForm.get('aliases').value);
+    }
+    
     // Template
     <select
-      formControlName="enterprises"
-      [compareWith]="compareEnterprises"
-      (change)="getChosenCourses()"
+      formControlName="aliases"
+      [compareWith]="compareAliases"
+      (change)="getChosenAliases()"
     >
       <option
-        *ngFor="let enterprise of getEnterprises()"
-        [ngValue]="enterprise"
+        *ngFor="let alias of aliases_"
+        [ngValue]="alias"
       >
-        {{ enterprise.name }}
+        {{ alias.name }}
       </option>
     </select>
 
