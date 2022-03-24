@@ -1,12 +1,12 @@
 ## Formulários Reativos - Configurações
 
-Em formulários do tipo `Orientado a Dados` o form é criado programaticamente e gerenciado dentro da classe do componente assim como validações e controle dos dados. Esse gerenciamento é realizado a partir de uma instância de métodos e sincronizado através de proprieades com o Template. Para fazer o uso de formulários do tipo Reativo é necessário que no módulo seja declarado o módulo de formulário **`ReactiveFormsModule`**.
+Em formulários do tipo `Orientado a Dados` o form é criado programaticamente e gerenciado dentro da classe do componente assim como validações e controle dos dados. Esse gerenciamento é realizado a partir de uma instância de métodos e sincronizado através de proprieades com o Template. Para fazer o uso de formulários do tipo Reativo é necessário que no módulo seja declarado o módulo de formulário **ReactiveFormsModule**.
 
 Os formulários reativos diferem dos formulários orientados por template de forma distinta. Os formulários reativos fornecem acesso síncrono ao modelo de dados, imutabilidade com operadores observáveis e rastreamento de mudanças através de fluxos observáveis.
 
 Os formulários dos tipo reativo fornece três blocos de construção fundamentais, *`FormControl`*, *`FormGroup`* e *`FormArray`*. Estas classes extendem a classe [**AbstractControl**](https://github.com/leandrobeandrade/treinamento-angular/blob/main/modulo-intermediario/forms/data-driven/abstract-control.md) que implementa a maior parte das funcionalidades básicas para acessar o valor, status de validação, interações do usuário e eventos.
 
-### FormControl
+### `FormControl`
 
 Rastreia o valor e o status de validação de um controle de formulário individual.
 
@@ -22,22 +22,25 @@ Rastreia o valor e o status de validação de um controle de formulário individ
     
 #### Formas de declarar FormControl()
 
-- `name: new FormControl()` - instância com valor null
-- `name: new FormControl(null)` - instância com valor null
-- `name: new Formcontrol('')` - instância string vazia
-- `name: []` - valor null
-- `name: [null]` - valor null
-- `name: ['']` - valor string vazia
-- `name: ''` - valor string vazia
+| Valor                         |Tipo       | Descrição                 |
+|-                              |-          |-                          |
+| name: new FormControl()       | Explícito | instância com valor null  |
+| name: new FormControl(null)   | Explícito | instância com valor null  |
+| name: new Formcontrol('')     | Explícito | instância string vazia    |
+| name: []                      | Implícito | valor null                |
+| name: [null]                  | Implícito | valor null                |
+| name: null                    | Implícito | valor null                |
+| name: ['']                    | Implícito | valor string vazia        |
+| name: ''                      | Implícito | valor string vazia        |
 
 #### Exemplo de uso
 
     <form>
       <label>Name: </label>
-      <input type="text" [formControl]="name">
+      <input type="text" [formControl]="name" />
     </form>
 
-### FormGroup
+### `FormGroup`
 
 Rastreia o valor e o estado de validade de um grupo de instâncias do FormControl. Agrega os valores de cada filho FormControl em um objeto, com cada nome de controle sendo uma chave.
 
@@ -51,10 +54,10 @@ Rastreia o valor e o estado de validade de um grupo de instâncias do FormContro
 
     <form [formGroup]="user">
       <label>Name: </label>
-      <input type="text" formControlName="name">
+      <input type="text" formControlName="name" />
     </form>
     
-### FormArray
+### `FormArray`
 
 Rastreia o valor e o estado de validade de um array de instâncias FormControl, FormGroup ou FormArray. Agrega os valores de cada FormControl filho em uma matriz.
     
@@ -74,21 +77,21 @@ Rastreia o valor e o estado de validade de um array de instâncias FormControl, 
     
     <form [formGroup]="user">
       <label>Name: </label>
-      <input type="text" formControlName="name">
+      <input type="text" formControlName="name" />
       
       <div formArrayName="courses" *ngFor="let course of courses.controls; index as i">
         <label>Curso:</label>
-        <input type="text" [formControlName]="i">
+        <input type="text" [formControlName]="i" />
       </div>
     </form>
 
-### FormBuilder
+### `FormBuilder`
 
 O Angular também fornece um método construtor de formulários que além de ajudar na leitura do código facilita na hora de escrever o mesmo. Utilizando a classe de serviço **[FormBuilder](https://angular.io/api/forms/FormBuilder)** que após ser injetada na classe, fornece três métodos para a criação de um formulário.
 
     constructor(private fb: FormBuilder) {}
 
-> control()
+> **control()**
 
 Constrói um novo FormControl gerenciando estado, validadores e opções do contole
 
@@ -97,7 +100,7 @@ Constrói um novo FormControl gerenciando estado, validadores e opções do cont
     this.user = this.fb.control({name: [], disabled: true});
     this.user = this.fb.control({age: null});
 
-> group()
+> **group()**
 
 Constrói uma nova instância do FormGroup
     
@@ -108,7 +111,7 @@ Constrói uma nova instância do FormGroup
       age: null
     })
 
-> array()
+> **array()**
 
 Constrói um novo FormArray a partir de um determinado conjunto de configurações, validadores e opções
 
@@ -163,11 +166,62 @@ Constrói um novo FormArray a partir de um determinado conjunto de configuraçõ
 
       <div *ngFor="let course of courses.controls; let i = index">
         <label>Curso:</label>
-        <input type="text" [formControlName]="i">
+        <input type="text" [formControlName]="i" />
         
         <button (click)="removeCourse(i)">Remover curso</button>
       </div>
     </div>
+    
+*Para obter um objeto completo (com todas as suas propriedades) de um campo Html `select`, basta utilizar a diretiva **`[ngValue]`** em conjunto com a diretiva **`[compareWith]`** que automaticamente será armazenado todo o objeto em si.*
+
+    // Classe
+    userForm: FormGroup;
+    
+    constructor(private fb: formBuilder) {}
+    
+    ngOnInit() {
+      this.courses.push(this.fb.group(dados));
+    }
+    
+    this.user = this.fb.group({
+      name: ['', Validators.required],
+      courses: this.fb.array([])
+    })
+    
+    get courses() {
+      return this.form.get('courses') as FormArray;
+    }
+    
+    compareCourses(course1, course2) {
+      return course1 && course2
+        ? course1.name === course2.name
+        : course1 === course2;
+    }
+    
+    getChosenCourses() {
+      console.log(this.userForm.get('courses').value.name;
+    }
+    
+    // Dados
+    const dados = [
+      { id: 1, name: 'Fulano' },
+      { id: 2, name: 'Beltrano' },
+      { id: 3, name: 'Ciclano' }
+    ]
+    
+    // Template
+    <select
+      formControlName="enterprises"
+      [compareWith]="compareEnterprises"
+      (change)="getChosenCourses()"
+    >
+      <option
+        *ngFor="let enterprise of getEnterprises()"
+        [ngValue]="enterprise"
+      >
+        {{ enterprise.name }}
+      </option>
+    </select>
 
 |Referências|
 |-
