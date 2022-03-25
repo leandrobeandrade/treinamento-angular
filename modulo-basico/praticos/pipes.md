@@ -5,7 +5,7 @@ Decorador que marca uma classe como sendo um canalizador de dados que fornece me
 ### Metadados
 
 - **name** - O nome do pipe a ser usado em associações de modelo. Normalmente usa lowerCamelCase porque o nome não pode conter hífens.
-- **pure?** - Quando true, o pipe é puro, o que significa que o método **transform()** é invocado somente quando seus argumentos de entrada são alterados. Pipes são puros por padrão.
+- **pure?** - Quando true, o pipe é puro, o que significa que o método **`transform()`** é invocado somente quando seus argumentos de entrada são alterados. Pipes são puros por padrão.
 
 Se o pipe tiver um estado interno (ou seja, o resultado depende de outro estado além de seus argumentos), defina pure como `false`. Nesse caso, o pipe é invocado em cada ciclo de detecção de alterações, mesmo que os argumentos não tenham sido alterados.
 
@@ -27,7 +27,7 @@ Se o pipe tiver um estado interno (ou seja, o resultado depende de outro estado 
 
 > AsyncPipe
 
-Desempacota um valor de um dado assíncrono (Observables/Promises) e retorna o valor mais recente emitido. Quando um novo valor é emitido, o asyncpipe marca o componente a ser verificado quanto a alterações. Quando o componente é destruído, o asyncpipe cancela a assinatura automaticamente para evitar possíveis vazamentos de memória. Quando a referência da expressão muda, o asyncpipe automaticamente cancela a assinatura do antigo Observable ou Promisee assina o novo
+Desempacota um valor de um dado assíncrono *`(Observables/Promises)`* e retorna o valor mais recente emitido. Quando um novo valor é emitido, o asyncpipe marca o componente a ser verificado quanto a alterações. Quando o componente é destruído, o asyncpipe cancela a assinatura automaticamente para evitar possíveis vazamentos de memória. Quando a referência da expressão muda, o asyncpipe automaticamente cancela a assinatura do antigo Observable ou Promise assina o novo
 
     @Component({
       selector: 'async-observable-pipe',
@@ -80,7 +80,7 @@ Transforma um número em uma string de moeda, formatada de acordo com as regras 
 
           <p>B: {{ b | currency:'CAD':'symbol':'4.2-2':'fr'}}</p>    // '0 001,35 CA$'
         </div>`
-        })
+      })
       export class CurrencyPipeComponent {
         a: number = 0.259;
         b: number = 1.3495;
