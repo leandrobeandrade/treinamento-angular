@@ -1,4 +1,4 @@
-## Interface Model
+## Interface Model - Estrutura
 
 Interfaces funcionam como um modelo de dados, são abstrações de entidades do banco de dados que servem como um contrato para realizarem a comunicação dos dados entre o cliente e o servidor. Garantindo que os dados que estão sendo enviados contemplem esse modelo.
 
