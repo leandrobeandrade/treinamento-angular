@@ -10,28 +10,15 @@ Os formulários dos tipo reativo fornece três blocos de construção fundamenta
 
 Rastreia o valor e o status de validação de um controle de formulário individual.
 
-> **Explícito**
-
     name = new FormControl();
-    
-> **Implícito**
 
-    user = new FormGroup({
-      name: [],
-    })
-    
-#### Formas de declarar FormControl()
+#### Formas de declarar explicitamente FormControl()
 
 | Valor                         |Tipo       | Descrição                 |
 |-                              |-          |-                          |
 | name: new FormControl()       | Explícito | instância com valor null  |
 | name: new FormControl(null)   | Explícito | instância com valor null  |
 | name: new Formcontrol('')     | Explícito | instância string vazia    |
-| name: []                      | Implícito | valor null                |
-| name: [null]                  | Implícito | valor null                |
-| name: null                    | Implícito | valor null                |
-| name: ['']                    | Implícito | valor string vazia        |
-| name: ''                      | Implícito | valor string vazia        |
 
 #### Exemplo de uso
 
@@ -64,13 +51,19 @@ Rastreia o valor e o estado de validade de um array de instâncias FormControl, 
     user: FormGroup;
     
     this.user = new FormGroup({
-      name: [],
-      courses = new FormArray([]);
+      name: new FormControl(),
+      courses: new FormArray([]);
     })
     
-    // Cria um acesso a propriedade formArray do formulário
+    // Cria acesso direto a propriedade formArray do formulário
     get courses() {
       return this.user.get('courses') as FormArray;
+    }
+    
+    // Insere valores no array de cursos
+    addCourses() {
+      const algo = 'Algum valor';
+      this.courses.push(this.fb.control(algo));
     }
     
 #### Exemplo de uso
@@ -79,9 +72,12 @@ Rastreia o valor e o estado de validade de um array de instâncias FormControl, 
       <label>Name: </label>
       <input type="text" formControlName="name" />
       
-      <div formArrayName="courses" *ngFor="let course of courses.controls; index as i">
+      <button (click)="addCourses()">Adicionar cursos</button>
+      
+      <div formArrayName="courses" *ngFor="let course of user.get('courses')['controls']; index as i">
         <label>Curso:</label>
-        <input type="text" [formControlName]="i" />
+        <input type="text" [formControlName]="i" />             // OU
+        <input type="text" [formControl]="course" />
       </div>
     </form>
 
@@ -107,7 +103,7 @@ Constrói uma nova instância do FormGroup
     user: FormGroup;
     
     this.user = this.fb.group({ 
-      name: [], disabled: true,
+      name: [null, {disabled: true}],
       age: null
     })
 
@@ -119,6 +115,18 @@ Constrói um novo FormArray a partir de um determinado conjunto de configuraçõ
     
     this.user = this.fb.array([])
 
+#### Formas de declarar explicitamente e implicitamente FormControl()
+
+| Valor                         |Tipo       | Descrição                 |
+|-                              |-          |-                          |
+| name: new FormControl()       | Explícito | instância com valor null  |
+| name: new FormControl(null)   | Explícito | instância com valor null  |
+| name: new Formcontrol('')     | Explícito | instância string vazia    |
+| name: []                      | Implícito | valor null                |
+| name: [null]                  | Implícito | valor null                |
+| name: null                    | Implícito | valor null                |
+| name: ['']                    | Implícito | valor string vazia        |
+| name: ''                      | Implícito | valor string vazia        |
 
 #### Exemplo completo de implementação de um formArray
 
@@ -158,7 +166,7 @@ Constrói um novo FormArray a partir de um determinado conjunto de configuraçõ
       this.courses.removeAt(index);
     }
     
-*Como os elementos do array de formulário não têm nome, foi atribuido o índice à variável **`i`** o que é passado para cada controle para vinculá-lo à entrada  `formControlName`.*
+*No template, basta percorrer o array.*
 
     <div formArrayName="courses">
       <h2>Cursos</h2>
@@ -206,10 +214,7 @@ Constrói um novo FormArray a partir de um determinado conjunto de configuraçõ
       [compareWith]="compareAliases"
       (change)="getChosenAliases()"
     >
-      <option
-        *ngFor="let alias of aliases_"
-        [ngValue]="alias"
-      >
+      <option *ngFor="let alias of aliases_" [ngValue]="alias">
         {{ alias.name }}
       </option>
     </select>
