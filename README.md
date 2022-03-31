@@ -96,7 +96,7 @@ Descritivo do fluxo e tópicos a serem abordados durante o treinamento de Angula
 > Interface Model
   
 - [Estrutura](https://github.com/leandrobeandrade/treinamento-angular/blob/main/modulo-avancado/model/estrutura.md)
-- Tipagem
+- [Tipagem](https://github.com/leandrobeandrade/treinamento-angular/blob/main/modulo-avancado/model/tipagem.md)
     
 > Integrações API
     
