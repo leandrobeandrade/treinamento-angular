@@ -1,0 +1,3 @@
+## Tipagem de Models
+
+...
