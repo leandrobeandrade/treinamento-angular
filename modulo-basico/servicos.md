@@ -8,17 +8,17 @@ Utiliza do decorador **`@Injectable()`** para declarar a classe como sendo do ti
 
 > @Injectable() 
  
-Prove a clase como sendo um serviço. Possui seis metadados:
+Prove a classe como sendo um serviço. Possui seis metadados:
 
   - **provideIn (string)** - Determina quais injetores fornecerão o injetável. Fornece cinco opções de configurações:
 
-    - root (string) - Declara o service como sendo do tipo **`Singleton`**.
-    - platform (string) - Um injetor de plataforma singleton especial compartilhado por todos os aplicativos na página.
-    - any (string) - Fornece uma instância única em cada módulo carregado lentamente, enquanto todos os módulos carregados lazy compartilham uma instância.
-    - null - Equivalente a undefined. O injetável não é fornecido em nenhum escopo automaticamente e deve ser adicionado a um providers de um @NgModule , @Component ou @Directive .
-    - Type(any)- Associa o injetável a um ou outro @NgModuleInjectorType.
+    - `root (string)` - Declara o service como sendo do tipo **`Singleton`**.
+    - `platform (string)` - Um injetor de plataforma singleton especial compartilhado por todos os aplicativos na página.
+    - `any (string)` - Fornece uma instância única em cada módulo carregado lentamente, enquanto todos os módulos carregados lazy compartilham uma instância.
+    - `null` - Equivalente a undefined. O injetável não é fornecido em nenhum escopo automaticamente e deve ser adicionado a um providers de um @NgModule , @Component ou @Directive .
+    - `Type(any)` - Associa o injetável a um ou outro @NgModuleInjectorType.
   - **deps (any[])** - Recebe um array de classes do tipo service | ExampleService
-  - **useClass (Type<any>)** - Recebe uma classe do tipo service | ExampleService
+  - **useClass (Type< any >)** - Recebe uma classe do tipo service | ExampleService
   - **useExisting (any)** - Configura o service para retornar um valor de outro através de um token.
   - **useFactory (function)** - Recebe uma função do service | (ServiceExample) => ServiceExample.getLocale()
   - **useValue (any)** - Recebe um valor para representar algum argumento que o service necessita para funcionar  | 'pt-BR'
@@ -42,8 +42,8 @@ No construtor de uma classe criasse a instância de outras classes que podem ou 
         exampleService: ExampleService;
 
         constructor() {
-            this.exampleService = new ExampleService(...!!!...);  // Problema - ao instanciar ExampleService 
-        }                                                         // teria que passar algo do tipo HttpService
+            this.exampleService = new ExampleService(...!!!...);      // Problema - ao instanciar ExampleService 
+        }                                                             // teria que passar algo do tipo HttpService
     }
   
 #### Instância com injeção de dependência
@@ -147,15 +147,3 @@ Prove comunicação `bidirecional` de dados entre a aplicação e um servidor. O
 - [padrão singleton](https://angular.io/guide/singleton-services)
 - [injecção de dependência](https://angular.io/guide/dependency-injection)
 - [injecção de dependência em ação](https://angular.io/guide/dependency-injection-in-action)
-  
-  
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
