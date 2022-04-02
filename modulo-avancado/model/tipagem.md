@@ -101,4 +101,4 @@ Tendo os modelos criados conforme um entidade referente a uma tabela em um banco
           this.userModel = this.user as IUserModel;
         })
       }
-      
+    }
