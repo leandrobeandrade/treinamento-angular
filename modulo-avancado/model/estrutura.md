@@ -55,7 +55,7 @@ Após a instanciação do modelo este fica disponível na classe utilitária par
     }
     
     updateUser() {
-      this.loginService.deleteUser(this.userModel.id);      // this.userModel.id - utilização de propriedades do modelo
+      this.userService.deleteUser(this.userModel.id);      // this.userModel.id - utilização de propriedades do modelo
     }
 
 
