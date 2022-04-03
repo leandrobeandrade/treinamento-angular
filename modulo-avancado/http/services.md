@@ -27,5 +27,38 @@ Classe reponsável pelo formato do retorno processado pelas requisições. Imple
 
 - Todos os serviços de integração com API's devem estar localizados na pasta **`api`** dentro da respectiva ferramenta
 - Todos os serviços devem estender uma classe abstrata com métodos abstratos pré determinados
-- Todos os serviços devem ser declarados dentro dos **`providers`** da classe utilitária que utilizar o serviço
 - Todos os serviços devem ser tipados com sua respectiva classe modelo para prevenção de possíveis inconsistências de dados
+- A url base deve estar em consenso com a versão definida pela API naquele momento
+- Todos os serviços devem ser declarados dentro dos **`providers`** da classe utilitária que utilizar o serviço
+
+### Integração de dados localmente e via IBM
+
+Existe duas possibilidades para a execução de requisições para a API's, rodar as API's localmente e realizar as chamadas ou apenas realizar as chamadas com as API's já publicadas na IBM.
+
+> Rodar localmente
+
+Nos serviços que forem rodar API's localmente faz-se necessário inserir o valor **`true`** como parâmetro dos métodos que fazem a conexão e seguir os passos a seguir
+
+- Baixar e configurar a API na máquina com todas as entradas e variáveis de ambiente
+- Posuir VPN instalada e configurada na máquina
+- Rodar VPN e consequentemente a API
+
+Exemplo de serviço consumindo API localmente
+
+    addUser(categories: IUserModel): Observable<IResponseOld<IUserModel>> {
+      return this.apiService
+        .crudeAdd({
+          url: this.url,
+          payload: categories.toJSON(),
+        }, true)                                                 // true - Automaticamente conectara com as API's rodando na máquina
+        .pipe(
+          map((res) => {
+            return new IResponseOld<IUserModel>(res, IUserModel);
+          })
+        );
+    }
+
+> Via IBM
+
+Para se integrar dados cuja API's já foram publicadas basta apenas declarar os endpoints com os métodos que implementam os verbos *`HTPP`* correspondentes, sem passar o valor **true**
+
