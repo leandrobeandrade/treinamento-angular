@@ -101,7 +101,7 @@ Descritivo do fluxo e tópicos a serem abordados durante o treinamento de Angula
 > Integrações API
     
 - [Serviços](https://github.com/leandrobeandrade/treinamento-angular/blob/main/modulo-avancado/http/services.md)
-- CRUD
+- [CRUD](https://github.com/leandrobeandrade/treinamento-angular/blob/main/modulo-avancado/http/crud.md)
 
 > RxJS
 
