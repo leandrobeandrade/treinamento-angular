@@ -1,6 +1,8 @@
 ## Tipagem de Models
 
-Tendo os modelos criados conforme um entidade referente a uma tabela em um banco de dados, podemos utilizá-las para a tipagem de atributos, métodos e tudo mais quanto for necessário que precise fazer menção a um modelo em específico.
+Tendo os modelos criados conforme uma entidade referente a uma tabela em um banco de dados, podemos utilizá-las para a tipagem de atributos, métodos e tudo mais quanto for necessário que precise fazer menção a um modelo em específico. Para montagem de um model geralmente utiliza-se do verbo **http** **`get`**. 
+
+Através deste é fornecido uma listagem da referida entidade, podendo assim obter os atributos necessários para se trabalhar com aquele modelo. Estas requisições de montagem de model podem ser realizadas através da ferramenta `Postman`.
 
 > Exemplo de uso
 
