@@ -103,5 +103,8 @@ Serve como uma ponte entre a aplicação e e uma fonte de dados externa a aplica
       }
     }
     
+|Referências|
+|-|
+
 - [httpClient](https://angular.io/api/common/http/HttpClient)
 - [métodos http](https://angular.io/guide/http)
