@@ -164,5 +164,8 @@ As guardas de rotas são cumulativas, ou seja, você pode ter vários arquivos d
         },
       ];
 
+|Referências|
+|-|
+
 - [router](https://angular.io/guide/router)
 - [route](https://angular.io/api/router/Route)
