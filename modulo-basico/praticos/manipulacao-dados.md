@@ -430,4 +430,7 @@ Declara um ouvinte de host que invocará o método decorado quando o elemento ho
     
     this.renderer.setElementStyle(this.elementRef.nativeElement, 'background-color', 'red');
 
-> LINK DE REFERÊNCIA: https://angular.io/guide/cheatsheet
+|Referências|
+|-|
+
+- [cheatsheet](https://angular.io/guide/cheatsheet)
