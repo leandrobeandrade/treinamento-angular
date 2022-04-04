@@ -343,3 +343,8 @@ Além dos pipes fornececidos pelo próprio Angular, também podemos criar nossos
     
     // Classe
     dados = [1, 2];
+    
+|Referências|
+|-|
+
+- [pipes](https://angular.io/api/common/CommonModule#pipes)
