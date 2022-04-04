@@ -95,7 +95,6 @@ Ao reexportar `CommonModule` e `FormsModule`, qualquer outro módulo que importe
       
       export class OutroModule
       
-LINKS DE REFERÊNCIA
 |Referências|
 |-|
 
