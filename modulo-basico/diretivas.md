@@ -152,4 +152,7 @@ O valor é a instrução a ser executada quando o evento ocorrer. Se a instruç�
 
       jit?: true
 
-> LINK DE REFERÊNCIA: https://angular.io/api/core/Directive
+|Referências|
+|-|
+
+- [diretivas](https://angular.io/api/core/Directive)
