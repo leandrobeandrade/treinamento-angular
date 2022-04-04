@@ -433,7 +433,10 @@ Constrói um tipo selecionando todas as propriedades de Type e removendo Keys (l
 
     console.log(todo1);
     
-[link para ver todos os Utility Types](https://www.typescriptlang.org/docs/handbook/utility-types.html)
+|Referências|
+|-|
+    
+- [link para ver todos os Utility Types](https://www.typescriptlang.org/docs/handbook/utility-types.html)
   
 > Enums
 
