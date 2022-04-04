@@ -98,8 +98,10 @@ Decorator que marca uma classe como um componente Angular e fornece metadados de
 
       preserveWhitespaces?: boolean     -       preserveWhitespaces: true
 
+|Referências|
+|-|
 
-> **LINK DE REFERÊNCIA:** https://angular.io/api/core/Component
+- [componentes](https://angular.io/api/core/Component)
 
 ## Ganchos de Ciclo de Vida
 
@@ -141,4 +143,7 @@ Métodos de Classes que controlam os componentes conforme o seu ciclo. Represent
 
       ngOnDestroy() {...}
 
-> LINK DE REFERÊNCIA: https://angular.io/guide/cheatsheet
+|Referências|
+|-|
+
+- [cheatsheet](https://angular.io/guide/cheatsheet)
