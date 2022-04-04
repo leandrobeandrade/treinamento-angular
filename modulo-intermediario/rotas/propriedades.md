@@ -242,7 +242,7 @@ Anexa segmentos de URL à árvore de URL atual para criar uma nova árvore de UR
 
 Propriedade apenas de leitura que descreve a árvore URL da rota especificada .
   
-|referências|
+|Referências|
 |-|
   
   - [route](https://angular.io/api/router/Route)
