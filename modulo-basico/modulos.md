@@ -96,7 +96,9 @@ Ao reexportar `CommonModule` e `FormsModule`, qualquer outro módulo que importe
       export class OutroModule
       
 LINKS DE REFERÊNCIA
+|Referências|
+|-|
 
-- https://angular.io/api/core/NgModule
-- https://angular.io/guide/sharing-ngmodules
+- [ngModule](https://angular.io/api/core/NgModule)
+- [sharing modules](https://angular.io/guide/sharing-ngmodules)
 
