@@ -143,6 +143,9 @@ Prove comunicação `bidirecional` de dados entre a aplicação e um servidor. O
       this.configService.getConfig().subscribe((data: Config) => this.config = data);
     }  
     
+| Referências|
+| - |
+
 - [services](https://angular.io/guide/architecture-services)    
 - [padrão singleton](https://angular.io/guide/singleton-services)
 - [injecção de dependência](https://angular.io/guide/dependency-injection)
