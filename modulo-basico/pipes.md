@@ -53,7 +53,8 @@ Angular por padrão fornece pipes integrados para transformações de dados típ
 - **DecimalPipe:** Transforma um número em uma string com um ponto decimal, formatado de acordo com as regras de localidade.
 - **PercentPipe:** Transforma um número em uma string de porcentagem, formatada de acordo com as regras de localidade.
     
-> LINK DE REFERÊNCIA 
+|Referências|
+|-|
 
-- https://angular.io/api/core/Pipe
-- https://angular.io/guide/pipes
+- [pipes](https://angular.io/api/core/Pipe)
+- [exemplos](https://angular.io/guide/pipes)
