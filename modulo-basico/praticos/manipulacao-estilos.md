@@ -57,7 +57,8 @@ Vincula dinâmicamente e diretamente estilos CSS no elemento conforme condição
     
     <button [style.background-color]="control ? 'green' : right ? 'red' : null">Clicar</button>
     
-Links de referência
+|Referências|
+|-|
 
 - [ngClass](https://angular.io/api/common/NgClass)
 - [ngStyle](https://angular.io/api/common/NgStyle)
