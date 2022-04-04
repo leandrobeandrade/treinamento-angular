@@ -217,3 +217,7 @@ Criam interações diversas entre elementos HTML inseridos no DOM, manipulando e
     // Classe
     color = '';
     
+|Referências|
+|-|
+
+- [diretivas](https://angular.io/api/common/CommonModule#directives)
