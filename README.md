@@ -105,5 +105,6 @@ Descritivo do fluxo e tópicos a serem abordados durante o treinamento de Angula
 
 > RxJS
 
+- [Descrição](https://github.com/leandrobeandrade/treinamento-angular/blob/main/modulo-avancado/rxjs/descritipion.md)
 - Métodos Gerais Comuns
 - Exemplos Aplicados
