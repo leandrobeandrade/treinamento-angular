@@ -30,21 +30,42 @@ Podemos descrever um modelo para ser utilizado como contrato da seguinte maneira
       password: string;
       email: string;
       active: boolean;
-    } 
+    }
     
-> **Observação:** Pode ser utilizado a funcionalidade **type union** forncedida pelo `TypeScript` para se tipar os atributos com determinados tipos. Ex: **`id: number | string | null`**
+Pode ser utilizado a funcionalidade **type union** forncedida pelo `TypeScript` para se tipar os atributos com determinados tipos. 
+
+    id: number | string | null`**, 
+    
+Assim também como utilizar outras classes para se tipar um atributo, o que é muito comumumente utilizado.
+
+    export class IUserModel {
+      id: number;
+      name: string;
+      registered: Date
+      password: string;
+      email: string;
+      active: boolean;
+      company: IUserCompanyModel;
+    }
+    
+    export class IUserCompanyModel {
+      companyContractor: ICompanyModel;
+      companyView: ICompanyModel;
+    }
 
 ### Utilização do modelo
 
 Para a utilização do modelo criado basta fazer a importação devida do mesmo na classe utilitária, atribuindo o modelo a uma propriedade da classe e instânciando este modelo para uso:
 
     import { IUserModel } from 'path-do-arquivo';
+    import { IUserCompanyModel } from 'path-do-arquivo';
 
     export class User {
       userModel: IUserModel;
       
       ngOnInit() {
         this.userModel = new UserModel();
+        this.userModel.company = new IUserCompanyModel();
       }
     }
 
