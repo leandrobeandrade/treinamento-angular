@@ -1,2 +1,0 @@
-## Métodos Gerais Comuns
-
