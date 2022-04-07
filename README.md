@@ -100,11 +100,11 @@ Descritivo do fluxo e tópicos a serem abordados durante o treinamento de Angula
     
 > Integrações API
     
-- [Serviços](https://github.com/leandrobeandrade/treinamento-angular/blob/main/modulo-avancado/http/services.md)
+- [Serviços](https://github.com/leandrobeandrade/treinamento-angular/blob/main/modulo-avancado/http/servicos.md)
 - [CRUD](https://github.com/leandrobeandrade/treinamento-angular/blob/main/modulo-avancado/http/crud.md)
 
 > RxJS
 
-- [Descrição](https://github.com/leandrobeandrade/treinamento-angular/blob/main/modulo-avancado/rxjs/descritipion.md)
+- [Descrição](https://github.com/leandrobeandrade/treinamento-angular/blob/main/modulo-avancado/rxjs/descricao.md)
 - [Operadores Gerais Comuns](https://github.com/leandrobeandrade/treinamento-angular/blob/main/modulo-avancado/rxjs/operadores-gerais.md)
 - Exemplos Aplicados
