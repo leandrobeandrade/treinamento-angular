@@ -13,7 +13,7 @@ RxJS fornece programação reativa para lidar com implementação assíncrona, r
 
 ### `Observable`
 
-Os observables RxJS permitem a implementação e captação de eventos, podendo realizar a modelagem do fluxo deste evento. Observables têm dois métodos: *`subscription`* e *`unsubscription`*, sendo o observable executado quando ocorre a inscrição do mesmo.
+Os observadores RxJS permitem a implementação e captação de eventos, podendo realizar a modelagem do fluxo deste evento. Observables têm dois métodos: *`subscription`* e *`unsubscription`*, sendo o observable executado quando ocorre a inscrição do mesmo.
 
     import { Observable } from 'rxjs';
 
@@ -42,7 +42,7 @@ Um observador é um objeto com os métodos *`next()`*, *`error()`* e *`complete(
 
 ### `Subscription`
 
-Uma assinatura do observável que acionará a execução do observável. É um objeto que representa um recurso descartável, geralmente a execução de um Observável. Uma Subscription tem um método importante, o **`unsubscribe`**, que não aceita argumentos e apenas descarta o recurso retido pela assinatura.
+É a assinatura do observável que acionará a execução do observável. É um objeto que representa um recurso descartável, geralmente a execução de um Observável. Uma Subscription tem um método importante, o **`unsubscribe`**, que não aceita argumentos e apenas descarta o recurso retido pela assinatura.
 
     import { Observable } from 'rxjs';
 
@@ -70,7 +70,7 @@ Um operador é uma função que permite realizar certas ações em eventos execu
 
 ### `Subject`
 
-Um Subject RxJS é um tipo especial de Observable que permite que valores sejam multicast para muitos Observadores. Enquanto os Observables simples são unicast (cada Observer inscrito possui uma execução independente do Observable), os Subjects são multicast. Os Subjects são como EventEmitters: eles mantêm um registro de muitos ouvintes.
+Um Sujeito RxJS é um tipo especial de Observable que permite que valores sejam multicast para muitos Observadores. Enquanto os Observables simples são unicast (cada Observer inscrito possui uma execução independente do Observable), os Subjects são multicast. Os Subjects são como EventEmitters: eles mantêm um registro de muitos ouvintes.
 
 > **Todo Subject é um Observable**. Dado um Subject, este poderá ser assinado, disponibilizando um Observer, que passará a receber valores normalmente. Da perspectiva do Observer, ele não pode dizer se a execução do Observable vem de um Unicast simples de um Observable ou de um Multicast de um Subject.
 
