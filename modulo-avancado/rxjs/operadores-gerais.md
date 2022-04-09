@@ -1,6 +1,17 @@
 ## Operadores Gerais Comuns
 
-Existem mais de 100 operadores disponibilizados pela bilbioteca RXJS, sendo estes dividos em 10 categorias sendo `Operadores de Criação`, **Operadores de Criação e Junção**, **Operadores de Transformação**, **Operadores de Filtragem**, **Operadores de Junção**, **Operadores Multicasting**, **Operadores de Tratamento de Erros**, **Operadores de Utilidades**, **Operadores Condicionais e Booleanos**, **Operadores Matemáticos e de Agregação**.
+Existem mais de 100 operadores disponibilizados pela bilbioteca RXJS, sendo estes dividos em 10 categorias sendo:
+
+- Operadores de Criação
+- Operadores de Criação e Junção
+- Operadores de Transformação
+- Operadores de Filtragem
+- Operadores de Junção
+- Operadores Multicasting
+- Operadores de Tratamento de Erros
+- Operadores de Utilidades
+- Operadores Condicionais e Booleanos
+- Operadores Matemáticos e de Agregação
 
 ### Operadores de Criação
 
@@ -214,9 +225,9 @@ Projeta cada valor de origem para um Observable que é mesclado na saída Observ
     // Logs:
     // Executa a primeira execução de 1 segundo e ao término a segunda de 2 segundos 
 
-> switchMap
+>  **`switchMap`**
 
-Projeta cada valor de origem para um Observable que é mesclado no Observable de saída, emitindo valores apenas do Observable projetado mais recentemente. Retorna um Observable que emite itens com base na aplicação de uma função fornecida a cada item emitido pelo Observable de origem, em que essa função retorna um Observable (chamado "interno"). Cada vez que observa um desses Observables internos, o Observable de saída começa a emitir os itens emitidos por esse Observable interno. Quando um novo Observable interno é emitido, switchMap para de emitir itens do Observable interno emitido anteriormente e começa a emitir itens do novo. Ele continua a se comportar assim para Observáveis internos subsequentes.
+Projeta cada valor de origem para um Observable que é mesclado no Observable de saída, emitindo valores apenas do Observable projetado mais recentemente. Retorna um Observable que emite itens com base na aplicação de uma função fornecida a cada item emitido pelo Observable de origem, em que essa função retorna um Observable (chamado "interno"). Cada vez que observa um desses Observables internos, o Observable de saída começa a emitir os itens emitidos por esse Observable interno. Quando um novo Observable interno é emitido, switchMap para de emitir itens do Observable interno emitido anteriormente e começa a emitir itens do novo. Ele continua a se comportar assim para Observáveis internos subsequentes
 
     import { fromEvent, interval } from 'rxjs';
     import { switchMap, take } from 'rxjs/operators';
@@ -230,7 +241,7 @@ Projeta cada valor de origem para um Observable que é mesclado no Observable de
     
 ### Operadores de Filtragem
 
-> debounce
+>  **`debounce`**
 
 Emite uma notificação da fonte Observável somente após um determinado intervalo de tempo determinado por outro Observável ter passado sem emissão de outra fonte. Atrasa as notificações emitidas pela fonte Observável, mas descarta as emissões atrasadas pendentes anteriores se uma nova notificação chegar à fonte Observável
 
@@ -249,9 +260,9 @@ Emite uma notificação da fonte Observável somente após um determinado interv
     // Após 5 segundos, o tempo de debounce será maior que o tempo de intervalo,
     // todos os valores futuros serão descartados
 
-> debounceTime
+>  **`debounceTime`**
 
-Emite uma notificação da fonte Observável somente após um determinado intervalo de tempo ter passado sem outra emissão de fonte. Atrasa as notificações emitidas pela fonte Observável, mas descarta as emissões atrasadas pendentes anteriores se uma nova notificação chegar na fonte Observável. Este operador acompanha a notificação mais recente da fonte Observável e a emite somente quando o dueTime tiver passado sem que nenhuma outra notificação apareça na fonte Observável.
+Emite uma notificação da fonte Observável somente após um determinado intervalo de tempo ter passado sem outra emissão de fonte. Atrasa as notificações emitidas pela fonte Observável, mas descarta as emissões atrasadas pendentes anteriores se uma nova notificação chegar na fonte Observável. Este operador acompanha a notificação mais recente da fonte Observável e a emite somente quando o dueTime tiver passado sem que nenhuma outra notificação apareça na fonte Observável
 
     import { fromEvent } from 'rxjs';
     import { debounceTime, map } from 'rxjs/operators';
@@ -268,7 +279,7 @@ Emite uma notificação da fonte Observável somente após um determinado interv
     // Logs:
     // Valores que foram digitados no input no intervalo de meio segundo, muito utilizado para fazer filtros com dados de um API
 
-> distinct
+>  **`distinct`**
 
 Retorna um Observable que emite todos os itens emitidos pelo Observable de origem que são distintos por comparação dos itens anteriores
 
@@ -282,7 +293,7 @@ Retorna um Observable que emite todos os itens emitidos pelo Observable de orige
     // Logs:
     // 1 2 3 4
 
-> filter
+>  **`filter`**
 
 Filtra os itens emitidos pela fonte Observável emitindo apenas aqueles que atendem a um predicado especificado
 
@@ -297,7 +308,7 @@ Filtra os itens emitidos pela fonte Observável emitindo apenas aqueles que aten
     // Logs:
     // 2 4 
     
-> first
+>  **`first`**
 
 Emite apenas o primeiro valor (ou o primeiro valor que atende a alguma condição) emitido pela fonte Observável
  
@@ -312,7 +323,7 @@ Emite apenas o primeiro valor (ou o primeiro valor que atende a alguma condiçã
     // Logs:
     // "valor: 1"
     
-> last
+>  **`last`**
 
 Retorna um Observable que emite apenas o último item emitido pelo Observable de origem
 
@@ -327,7 +338,7 @@ Retorna um Observable que emite apenas o último item emitido pelo Observable de
     // Logs:
     // "valor: 5"
  
-> take
+>  **`take`**
 
 Emite apenas os primeiros valores de contagem emitidos pela fonte Observável
 
@@ -342,7 +353,7 @@ Emite apenas os primeiros valores de contagem emitidos pela fonte Observável
     // Logs:
     // 0, 1, 2, 3, 4
     
-> takeLast
+>  **`takeLast`**
 
 Aguarda a conclusão da origem e emite os últimos N valores da origem, conforme especificado pelo argumento de contagem
 
@@ -356,7 +367,7 @@ Aguarda a conclusão da origem e emite os últimos N valores da origem, conforme
     // Logs;
     // Hello, World!
 
-> takeUntil
+>  **`takeUntil`**
 
 Emite os valores emitidos pela fonte Observable até que um notificador Observable emita um valor
 
@@ -371,7 +382,7 @@ Emite os valores emitidos pela fonte Observable até que um notificador Observab
     // Logs:
     // 0, 1, 2, 3
 
-> takeWhile
+>  **`takeWhile`**
 
 Emite valores emitidos pela fonte Observable desde que cada valor satisfaça o predicado fornecido e, em seguida, conclui assim que esse predicado não é satisfeito
 
@@ -388,7 +399,7 @@ Emite valores emitidos pela fonte Observable desde que cada valor satisfaça o p
  
  ### Operadores de Junção
  
- > mergeAll
+ >  **`mergeAll`**
 
 Converte um Observável de ordem superior em um Observável de primeira ordem que simultaneamente entrega todos os valores que são emitidos nos Observáveis internos
 
@@ -408,7 +419,7 @@ Converte um Observável de ordem superior em um Observável de primeira ordem qu
 
 ### Operadores Multicasting
 
-> share
+> **`share`**
 
 Retorna um novo Observable que faz multicast (compartilha) o Observable original. Enquanto houver pelo menos um Assinante, este Observável estará inscrito e emitindo dados. Quando todos os assinantes cancelarem a assinatura, ele cancelará a assinatura da fonte Observável
  
@@ -429,7 +440,7 @@ Retorna um novo Observable que faz multicast (compartilha) o Observable original
  
 ### Operadores de tratamento de erros
 
-> catchError
+>  **`catchError`**
 
 Captura erros no observável a ser tratado retornando um novo observável ou lançando um erro
 
@@ -443,11 +454,11 @@ Captura erros no observável a ser tratado retornando um novo observável ou lan
     const subscribe = example$.subscribe(val => console.log(val));
     
     // Logs:
-    // "ERRO: Algum problema|"
+    // "ERRO: Algum problema!"
     
 ### Operadores de Utilidades
 
-> tap
+>  **`tap`**
 
 Usado para executar efeitos colaterais para notificações da fonte observável. O uso mais comum de tap é na verdade para depuração. Você pode colocar um tap(console.log) em qualquer lugar do seu pipe observável, desconectar as notificações conforme elas são emitidas pela fonte retornada pela operação anterior
 
@@ -469,7 +480,7 @@ Usado para executar efeitos colaterais para notificações da fonte observável.
     // ANTES MAP: 2 APÓS MAP: 12 FINAL => 12
     // ANTES MAP: 3 APÓS MAP: 13 FINAL => 13
 
-> delay
+>  **`delay`**
 
 Atrasa a emissão de itens da fonte Observável por um determinado tempo limite ou até uma determinada Data
 
@@ -482,7 +493,7 @@ Atrasa a emissão de itens da fonte Observável por um determinado tempo limite 
   
 ### Operadores Condicionais e Booleanos
 
-> every
+>  **`every`**
 
 Retorna um Observable que emite se cada item da fonte satisfaz ou não a condição especificada
 
@@ -499,9 +510,9 @@ Retorna um Observable que emite se cada item da fonte satisfaz ou não a condiç
 
 ### Operadores Matemáticos e de Agregação
 
-> reduce
+>  **`reduce`**
 
-...
+Aplica uma função de acumulador sobre a fonte Observable e retorna o resultado acumulado quando a fonte é concluída, dado um valor de semente opcional
 
     import { fromEvent, interval } from 'rxjs';
     import { reduce, takeUntil, mapTo } from 'rxjs/operators';
@@ -509,10 +520,14 @@ Retorna um Observable que emite se cada item da fonte satisfaz ou não a condiç
     const clicksInFiveSeconds = fromEvent(document, 'click').pipe(
       takeUntil(interval(5000)),
     );
+    
     const ones = clicksInFiveSeconds.pipe(mapTo(1));
     const seed = 0;
     const count = ones.pipe(reduce((acc, one) => acc + one, seed));
     count.subscribe(x => console.log(x));
+    
+    // Logs:
+    // Quantidade de cliques no período de 5 segundos
     
 |Referências|
 |-|
