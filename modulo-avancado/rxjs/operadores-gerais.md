@@ -1,6 +1,6 @@
 ## Operadores Gerais Comuns
 
-Existem mais de 100 operadores disponibilizados pela bilbioteca RXJS, sendo estes dividos em 10 categorias sendo *Operadores de Criação*, *Operadores de Criação e Junção*, *Operadores de Transformação*, *Operadores de Filtragem*, *Operadores de Junção*, *Operadores Multicasting*, *Operadores de Tratamento de Erros*, *Operadores de Utilidades*, *Operadores Condicionais e Booleanos*, *Operadores Matemáticos e de Agregação*.
+Existem mais de 100 operadores disponibilizados pela bilbioteca RXJS, sendo estes dividos em 10 categorias sendo `Operadores de Criação`, **Operadores de Criação e Junção**, **Operadores de Transformação**, **Operadores de Filtragem**, **Operadores de Junção**, **Operadores Multicasting**, **Operadores de Tratamento de Erros**, **Operadores de Utilidades**, **Operadores Condicionais e Booleanos**, **Operadores Matemáticos e de Agregação**.
 
 ### Operadores de Criação
 
@@ -383,7 +383,140 @@ Emite valores emitidos pela fonte Observable desde que cada valor satisfaça o p
     
     const subscribe = example.subscribe(val => console.log(val));
 
+    // Logs:
+    // 1 2 3 4
  
+ ### Operadores de Junção
  
+ > mergeAll
+
+Converte um Observável de ordem superior em um Observável de primeira ordem que simultaneamente entrega todos os valores que são emitidos nos Observáveis internos
+
+    import { fromEvent, interval } from 'rxjs';
+    import { take, map, mergeAll } from 'rxjs/operators';
+
+    const clicks$ = fromEvent(document, 'click');
+    const higherOrder$ = clicks.pipe(
+      map((ev) => interval(1000).pipe(take(10))),
+    );
+    const firstOrder$ = higherOrder.pipe(mergeAll(2));
+    firstOrder$.subscribe(x => console.log(x));
+    
+    // Logs:
+    // Executa os valores a cada 1 segundo após o evento, 
+    // se na execução deste evento for disparado outro evento os dois eventos executam em simultâneo
+
+### Operadores Multicasting
+
+> share
+
+Retorna um novo Observable que faz multicast (compartilha) o Observable original. Enquanto houver pelo menos um Assinante, este Observável estará inscrito e emitindo dados. Quando todos os assinantes cancelarem a assinatura, ele cancelará a assinatura da fonte Observável
  
+    import { interval } from 'rxjs';
+    import { share, map, take } from 'rxjs/operators';
+
+    const source$ = interval(1000).pipe(
+      map((x: number) => {
+        console.log('Processing: ', x);
+        return x * x;
+      }),
+      share(),
+      take(5)
+    );
+
+    source$.subscribe((x) => console.log('subscription 1: ', x));
+    source$.subscribe((x) => console.log('subscription 1: ', x));
  
+### Operadores de tratamento de erros
+
+> catchError
+
+Captura erros no observável a ser tratado retornando um novo observável ou lançando um erro
+
+    import { throwError, of } from 'rxjs';
+    import { catchError } from 'rxjs/operators';
+    
+    const source = throwError('Algum problema!');   // Lança um erro
+   
+    const example$ = source.pipe(catchError(val => of(`ERRO: ${val}`)));
+    
+    const subscribe = example$.subscribe(val => console.log(val));
+    
+    // Logs:
+    // "ERRO: Algum problema|"
+    
+### Operadores de Utilidades
+
+> tap
+
+Usado para executar efeitos colaterais para notificações da fonte observável. O uso mais comum de tap é na verdade para depuração. Você pode colocar um tap(console.log) em qualquer lugar do seu pipe observável, desconectar as notificações conforme elas são emitidas pela fonte retornada pela operação anterior
+
+    import { of } from 'rxjs';
+    import { tap, map } from 'rxjs/operators';
+
+    const source = of(1, 2, 3, 4, 5);
+
+    const example = source.pipe(
+      tap(val => console.log(`ANTES MAP: ${val}`)),
+      map(val => val + 10),
+      tap(val => console.log(`APÓS MAP: ${val}`))
+    );
+
+    const subscribe = example.subscribe(val => console.log('FINAL => ', val));
+    
+    // Logs:
+    // ANTES MAP: 1 APÓS MAP: 11 FINAL => 11
+    // ANTES MAP: 2 APÓS MAP: 12 FINAL => 12
+    // ANTES MAP: 3 APÓS MAP: 13 FINAL => 13
+
+> delay
+
+Atrasa a emissão de itens da fonte Observável por um determinado tempo limite ou até uma determinada Data
+
+    import { fromEvent } from 'rxjs';
+    import { delay } from 'rxjs/operators';
+
+    const clicks = fromEvent(document, 'click');
+    const delayedClicks = clicks.pipe(delay(1000)); // valores serão emitidos após 1 segundo depois do clique
+    delayedClicks.subscribe(x => console.log(x));
+  
+### Operadores Condicionais e Booleanos
+
+> every
+
+Retorna um Observable que emite se cada item da fonte satisfaz ou não a condição especificada
+
+    import { of } from 'rxjs';
+    import { every } from 'rxjs/operators';
+
+     of(1, 2, 3, 4, 5, 6).pipe(
+        every(x => x < 6),
+    )
+    .subscribe(x => console.log(x)); 
+    
+    // Logs:
+    // false
+
+### Operadores Matemáticos e de Agregação
+
+> reduce
+
+...
+
+    import { fromEvent, interval } from 'rxjs';
+    import { reduce, takeUntil, mapTo } from 'rxjs/operators';
+
+    const clicksInFiveSeconds = fromEvent(document, 'click').pipe(
+      takeUntil(interval(5000)),
+    );
+    const ones = clicksInFiveSeconds.pipe(mapTo(1));
+    const seed = 0;
+    const count = ones.pipe(reduce((acc, one) => acc + one, seed));
+    count.subscribe(x => console.log(x));
+    
+|Referências|
+|-|
+
+- [operadores](https://rxjs.dev/guide/operators)
+- [operadores](https://www.learnrxjs.io/learn-rxjs/operators)
+    
