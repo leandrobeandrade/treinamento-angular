@@ -26,22 +26,22 @@ Descritivo do fluxo e tópicos a serem abordados durante o treinamento de Angula
 
 ## Módulo Básico
 
-> Comandos Terminal
+### Comandos Terminal
         
 - [Angular CLI](https://github.com/leandrobeandrade/treinamento-angular/blob/main/modulo-basico/comandos-angular-cli.md)
 - [Npm e Yarn](https://github.com/leandrobeandrade/treinamento-angular/blob/main/modulo-basico/comandos-npm-yarn.md)
 
-> Introdução
+### Introdução
         
 - [Sobre o Angular](https://github.com/leandrobeandrade/treinamento-angular/blob/main/modulo-basico/sobre-angular.md)
 - [Sobre o TypeScript](https://github.com/leandrobeandrade/treinamento-angular/blob/main/modulo-basico/sobre-typescript.md)
 
-> Estrutura do Projeto
+### Estrutura do Projeto
         
 - [Diretórios](https://github.com/leandrobeandrade/treinamento-angular/blob/main/modulo-basico/diretorios.md)
 - [Arquivos](https://github.com/leandrobeandrade/treinamento-angular/blob/main/modulo-basico/arquivos.md)
 
-> Estrutura Angular
+### Estrutura Angular
 
 - [HTML](https://github.com/leandrobeandrade/treinamento-angular/blob/main/modulo-basico/html.md)
 - [SCSS](https://github.com/leandrobeandrade/treinamento-angular/blob/main/modulo-basico/scss.md)
@@ -51,13 +51,13 @@ Descritivo do fluxo e tópicos a serem abordados durante o treinamento de Angula
 - [Diretivas](https://github.com/leandrobeandrade/treinamento-angular/blob/main/modulo-basico/diretivas.md)
 - [Pipes](https://github.com/leandrobeandrade/treinamento-angular/blob/main/modulo-basico/pipes.md)
       
-> Introdução TypeScript (Prático)
+### Introdução TypeScript (Prático)
 
 - [Tipagem](https://github.com/leandrobeandrade/treinamento-angular/blob/main/modulo-basico/typescript.md#introdu%C3%A7%C3%A3o-e-fundamenta%C3%A7%C3%A3o-typesscript)
 - [Orientação a Objetos](https://github.com/leandrobeandrade/treinamento-angular/blob/main/modulo-basico/typescript.md#orienta%C3%A7%C3%A3o-a-objetos)
 - [Tipos Especiais](https://github.com/leandrobeandrade/treinamento-angular/blob/main/modulo-basico/typescript.md#tipos-especializados)
 
-> Introdução Angular (Prático)
+### Introdução Angular (Prático)
 
 - [Manipulação e Controle de Dados](https://github.com/leandrobeandrade/treinamento-angular/blob/main/modulo-basico/praticos/manipulacao-dados.md)
 - [Manipulação e Controle de Estilos](https://github.com/leandrobeandrade/treinamento-angular/blob/main/modulo-basico/praticos/manipulacao-estilos.md)
@@ -65,7 +65,7 @@ Descritivo do fluxo e tópicos a serem abordados durante o treinamento de Angula
 - [Pipes](https://github.com/leandrobeandrade/treinamento-angular/blob/main/modulo-basico/praticos/pipes.md)
 - [Serviços](https://github.com/leandrobeandrade/treinamento-angular/blob/main/modulo-basico/praticos/servicos.md)
 
-> Bibliotecas
+### Bibliotecas
         
 - [Bootstrap](https://github.com/leandrobeandrade/treinamento-angular/blob/main/modulo-basico/bootstrap.md)
 - [Nebular](https://github.com/leandrobeandrade/treinamento-angular/blob/main/modulo-basico/nebular.md)
@@ -73,12 +73,12 @@ Descritivo do fluxo e tópicos a serem abordados durante o treinamento de Angula
 
 ## Módulo Intermediário
 
-> Rotas
+### Rotas
 
 - [Configuração](https://github.com/leandrobeandrade/treinamento-angular/blob/main/modulo-intermediario/rotas/configuracoes.md)
 - [Propriedades](https://github.com/leandrobeandrade/treinamento-angular/blob/main/modulo-intermediario/rotas/propriedades.md)
 
-> Formulários
+### Formulários
 
 - [Template Driven](https://github.com/leandrobeandrade/treinamento-angular/blob/main/modulo-intermediario/forms/template-driven.md)
 - Data Driven
@@ -87,24 +87,26 @@ Descritivo do fluxo e tópicos a serem abordados durante o treinamento de Angula
 
 ## Módulo Interno
 
-> Componentes Internos
+### Componentes Internos
 
 - [Componentes Utilizados](https://github.com/leandrobeandrade/treinamento-angular/blob/main/modulo-interno/componentes.md)
     
 ## Módulo Avançado
     
-> Interface Model
+### Interface Model
   
 - [Estrutura](https://github.com/leandrobeandrade/treinamento-angular/blob/main/modulo-avancado/model/estrutura.md)
 - [Tipagem](https://github.com/leandrobeandrade/treinamento-angular/blob/main/modulo-avancado/model/tipagem.md)
     
-> Integrações API
+### Integrações API
     
 - [Serviços](https://github.com/leandrobeandrade/treinamento-angular/blob/main/modulo-avancado/http/servicos.md)
 - [CRUD](https://github.com/leandrobeandrade/treinamento-angular/blob/main/modulo-avancado/http/crud.md)
 
-> RxJS
+### RxJS
 
 - [Descrição](https://github.com/leandrobeandrade/treinamento-angular/blob/main/modulo-avancado/rxjs/descricao.md)
 - [Operadores Gerais Comuns](https://github.com/leandrobeandrade/treinamento-angular/blob/main/modulo-avancado/rxjs/operadores-gerais.md)
-- Exemplos Aplicados
+- [Exemplos Aplicados](https://github.com/leandrobeandrade/treinamento-angular/blob/main/modulo-avancado/rxjs/exemplos-aplicados.md)
+
+![Treinamento Angular](https://user-images.githubusercontent.com/24658433/162741745-b9dd189b-98af-4e30-98f3-a755986d4874.png)
