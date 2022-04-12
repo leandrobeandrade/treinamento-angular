@@ -390,9 +390,9 @@ Emite valores emitidos pela fonte Observable desde que cada valor satisfaça o p
     import { takeWhile } from 'rxjs/operators';
 
     const source$ = of(1, 2, 3, 4, 5);
-    const example$ = source.pipe(takeWhile(val => val <= 4));
+    const example$ = source$.pipe(takeWhile(val => val <= 4));
     
-    const subscribe = example.subscribe(val => console.log(val));
+    const subscribe = example$.subscribe(val => console.log(val));
 
     // Logs:
     // 1 2 3 4
@@ -410,7 +410,7 @@ Converte um Observável de ordem superior em um Observável de primeira ordem qu
     const higherOrder$ = clicks.pipe(
       map((ev) => interval(1000).pipe(take(10))),
     );
-    const firstOrder$ = higherOrder.pipe(mergeAll(2));
+    const firstOrder$ = higherOrder$.pipe(mergeAll(2));
     firstOrder$.subscribe(x => console.log(x));
     
     // Logs:
@@ -447,9 +447,9 @@ Captura erros no observável a ser tratado retornando um novo observável ou lan
     import { throwError, of } from 'rxjs';
     import { catchError } from 'rxjs/operators';
     
-    const source = throwError('Algum problema!');   // Lança um erro
+    const source$ = throwError('Algum problema!');   // Lança um erro
    
-    const example$ = source.pipe(catchError(val => of(`ERRO: ${val}`)));
+    const example$ = source$.pipe(catchError(val => of(`ERRO: ${val}`)));
     
     const subscribe = example$.subscribe(val => console.log(val));
     
@@ -465,15 +465,15 @@ Usado para executar efeitos colaterais para notificações da fonte observável.
     import { of } from 'rxjs';
     import { tap, map } from 'rxjs/operators';
 
-    const source = of(1, 2, 3, 4, 5);
+    const source$ = of(1, 2, 3, 4, 5);
 
-    const example = source.pipe(
+    const example$ = source.pipe(
       tap(val => console.log(`ANTES MAP: ${val}`)),
       map(val => val + 10),
       tap(val => console.log(`APÓS MAP: ${val}`))
     );
 
-    const subscribe = example.subscribe(val => console.log('FINAL => ', val));
+    const subscribe = example$.subscribe(val => console.log('FINAL => ', val));
     
     // Logs:
     // ANTES MAP: 1 APÓS MAP: 11 FINAL => 11
@@ -487,9 +487,10 @@ Atrasa a emissão de itens da fonte Observável por um determinado tempo limite 
     import { fromEvent } from 'rxjs';
     import { delay } from 'rxjs/operators';
 
-    const clicks = fromEvent(document, 'click');
-    const delayedClicks = clicks.pipe(delay(1000)); // valores serão emitidos após 1 segundo depois do clique
-    delayedClicks.subscribe(x => console.log(x));
+    const clicks$ = fromEvent(document, 'click');
+    const delayedClicks$ = clicks.pipe(delay(1000)); // valores serão emitidos após 1 segundo depois do clique
+    
+    delayedClicks$.subscribe(x => console.log(x));
   
 ### Operadores Condicionais e Booleanos
 
