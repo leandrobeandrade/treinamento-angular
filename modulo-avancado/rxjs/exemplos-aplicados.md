@@ -9,7 +9,7 @@ Exemplos de uso na aplicação **ekaizen-frontend-redo** referentes a utilizaç�
     3 - Cria um obersável forkJoin recebendo os 2 services
     4 - Canaliza o fluxo dos dados
     5 - Mapeia cada valor de retorno dos services
-    6 - Inscreve no observável para pegar os dados modelados
+    6 - Se inscreve no observável para pegar os dados modelados
 >
 
     1  const layouts$ = this.layoutService.listLayoutSectors();
@@ -45,9 +45,10 @@ Exemplos de uso na aplicação **ekaizen-frontend-redo** referentes a utilizaç�
 
     1 - Variável de controle;
     2 - Se o evento for true segue o fluxo
-    3 - Observa enquanto a vriável de controle for true
-    4 - Muda o valor da varável de controle para false se desinscrevendo do observable
+    3 - Observa enquanto a variável de controle for true
+    4 - Muda o valor da variável de controle para false se desinscrevendo do observable
 >
+
     1   alive = true;
     
         openDialog(row: IShiftsModel) {
@@ -73,7 +74,7 @@ Exemplos de uso na aplicação **ekaizen-frontend-redo** referentes a utilizaç�
 
     1 - Service que lista o status atual
     2 - Mergea o retorno do primeiro service de listagem com o retorno do segundo de update
-
+    3 - Observable que captura erros de fluxo, executa o service de cadastro de status conforme erro no fluxo anterior
 >
 
         changeStatus() {
@@ -84,9 +85,31 @@ Exemplos de uso na aplicação **ekaizen-frontend-redo** referentes a utilizaç�
                   this.emotionalKanbanStatusModel
                 )
               ),
-              catchError(() =>
+    3         catchError(() =>
                 this.emotionalKanbanStatus.addStatus(this.emotionalKanbanStatusModel)
               )
             )
             .subscribe();
         }
+
+> ### switchMap e forkJoin
+
+    1 - Cria um Subject para observar valores
+    2 - Faz a modelagem dos dados com o retorno do switchMap junto com um forkJoin para juntar os valores
+    3 - Pega apenas o primeiro retorno emitido
+    4 - Se inscreve no Subject e executa ações
+>
+
+    1   behaviorSubject = new BehaviorSubject<Observable<string>[]>([]);
+    
+        this.behaviorSubject
+          .pipe(
+    2       switchMap((arr) => forkJoin(arr)),
+    3       take(1)
+          )
+    4     .subscribe({
+            next: () => {},
+            complete: () => this.printService.finish(),
+          });
+    
+    
