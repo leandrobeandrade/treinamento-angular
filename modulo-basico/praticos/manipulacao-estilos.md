@@ -62,4 +62,4 @@ Vincula dinâmicamente e diretamente estilos CSS no elemento conforme condição
 
 - [ngClass](https://angular.io/api/common/NgClass)
 - [ngStyle](https://angular.io/api/common/NgStyle)
-- [attributos](https://angular.io/guide/attribute-binding)
+- [atributos](https://angular.io/guide/attribute-binding)
