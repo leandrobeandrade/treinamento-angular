@@ -21,7 +21,7 @@ Descritivo do fluxo e tópicos a serem abordados durante o treinamento de Angula
 | TypeScript    | [TypeScript - Aprendendo Junto](https://youtube.com/playlist?list=PLlAbYrWSYTiPanrzauGa7vMuve7_vnXG_)                                 | Youtube       |
 | TypeScript    | [Mini-curso TypeScript](https://youtube.com/playlist?list=PLlAbYrWSYTiPanrzauGa7vMuve7_vnXG_)                                         | Youtube       |
 | RxJS          | [Introdução RxJS](https://youtube.com/playlist?list=PLdPPE0hUkt0p2iZ58kO8BTepd1QUwqZAp)                                               | Youtube       |
-| RxJS          | [Understanding RxJS](https://youtube.com/playlist?list=PL55RiY5tL51pHpagYcrN9ubNLVXF8rGVi)                                            | Youtube       |
+| RxJS          | [Tudo sobre RxJS](https://youtube.com/playlist?list=PLJYZJYNervmPUrNb-mHh7ct8c21R8nWqn)                                            | Youtube       |
 | Bootstrap     | [Curso de Bootstrap 4](https://www.udemy.com/share/101t6W3@zXGa0p_hGW1uWuMPhd4efa0V2Acd49N1ZSgP87TYFmUtOFJC1YbmHyeX-1MnvTjL/)         | Udemy         |
 
 ## Módulo Básico
