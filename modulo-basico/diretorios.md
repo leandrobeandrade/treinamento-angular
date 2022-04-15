@@ -33,7 +33,7 @@
 
 |________ :file_folder: :heavy_minus_sign: **types** : Diretório responsável por armazenar arquivos referentes a types Angular
 
-|________ :file_folder: :heavy_minus_sign: **utils** : Diretório responsável por armazenar arquivos referentes utilitários
+|________ :file_folder: :heavy_minus_sign: **utils** : Diretório responsável por armazenar arquivos de serviços utilitários
 
 |____ :file_folder: :heavy_minus_sign: **@theme** : Diretório responsável por armazenar arquivos comuns a toda aplicação
 
