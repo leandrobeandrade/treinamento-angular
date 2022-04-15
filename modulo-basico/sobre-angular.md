@@ -5,7 +5,7 @@
 ### Algumas características
 
 - Angular não tem um conceito de "escopo" ou controladores, em vez disso, ele usa uma hierarquia de componentes como o seu principal conceito arquitetônico
-- Angular tem uma expressão diferente de sintaxe, concentrando-se no uso de **`"[ ]"`** para a propriedade de ligação, e no uso de **`"( )"`** para ligação de evento
+- Angular tem uma expressão diferente de sintaxe, concentrando-se no uso de **`[ ]`** para a propriedade de ligação, e no uso de **`( )`** para ligação de evento
 - Modularidade – muito das funcionalidades principais foram movidas para os módulos 
 - Angular recomenda o uso da linguagem da Microsoft **TypeScript**, que apresenta as seguintes características:
   - É baseada em classes com o paradigma de programação orientada a objetos
