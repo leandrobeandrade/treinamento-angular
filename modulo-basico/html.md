@@ -33,33 +33,37 @@ a propriedade **`templateUrl`** por **`template`** e escrever o código HTML den
 
 ## Sintaxe para Template
 
-#### Vincula o conteúdo de texto a uma string interpolada, por exemplo, "Seabiscuit". Notaçaõ `INTERPOLATION`
+    // Valor que será computado
     
-    <p> Hello {{ ponyName }} </p>
+    greeting = 'World!';
 
-#### Vincula uma propriedade a uma string interpolada, por exemplo, "Seabiscuit". Equivalente a: <div [title]="'Hello' + ponyName">
+#### Vincula o conteúdo de texto a uma string interpolada. Notaçaõ `INTERPOLATION`
     
-    <div title="Hello {{ ponyName }}">
+    <p> Hello {{ greeting }} </p>         // <p>Hello World!</p>
 
-#### Vincula `(bind)` o valor de uma propriedade ao resultado da expressão firstName. Notaçaõ `PROPERTY BIND`
+#### Vincula uma propriedade a uma string interpolada. Equivalente a: <div [title]="'Hello' + greeting">
     
-    <input [value]="firstName">
+    <div title="Hello {{ greeting }}">
+
+#### Vincula `(bind)` o valor de uma propriedade ao resultado da expressão greeting. Notaçaõ `PROPERTY BIND`
+    
+    <input [value]="greeting">
     
 #### Os vínculos (binds) atribuem `aria-label` ao resultado da expressão actionName.
 
     <button type="button" [attr.aria-label]="actionName">{{ actionName }} with Aria</button>
 
-#### Vincula a presença da classe CSS `extra-sparkle` no elemento à veracidade da expressão isDelightful.
+#### Vincula a presença da classe CSS `isDanger` no elemento à veracidade da expressão isError.
 
-    <div [class.extra-sparkle]="isDelightful">
+    <div [class.isDanger]="isError">
 
 #### Vincula a largura da propriedade de estilo ao resultado da expressão mySize em pixels. As unidades são opcionais.
 
     <div [style.width.px]="mySize">
 
-#### Chama o método readRainbow quando um evento de clique é disparado neste elemento de botão (ou seus filhos) e passa no objeto de evento. Notação `EVENT BIND`
+#### Chama o método cancelAction quando um evento de clique é disparado neste elemento de botão (ou seus filhos) e passa no objeto de evento. Notação `EVENT BIND`
 
-    <button (click)="readRainbow ($event)">
+    <button (click)="cancelAction($event)">
     
 #### Configura a vinculação de dados bidirecional. Notação `TWO-WAY DATA BINDING`
 
@@ -71,7 +75,7 @@ a propriedade **`templateUrl`** por **`template`** e escrever o código HTML den
 
 #### Cria uma variável local `movieplayer` que fornece acesso à instância do elemento de vídeo em expressões de vinculação de dados e de evento no modelo atual.
 
-    <video #movieplayer ...>
+    <video #movieplayer>
         <button (click)="movieplayer.play()">
     </video>
 
@@ -83,7 +87,7 @@ a propriedade **`templateUrl`** por **`template`** e escrever o código HTML den
 
     <p>Card No.: {{ cardNumber | myCardNumberFormatter }}</p>
 
-#### O operador de navegação segura `?` significa que o campo do empregador é opcional e, se indefinido, o restante da expressão deve ser ignorado.
+#### O operador de navegação segura `?` significa que o campo do empregador é opcional e, se *`indefinido`*, o restante da expressão deve ser ignorado.
 
     <p>Employer: {{ employer?.companyName }}</p>
 
