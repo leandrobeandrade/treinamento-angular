@@ -41,9 +41,9 @@
 
 |________ :file_folder: :heavy_minus_sign: **directives** : Diretório responsável por armazenar diretivas comuns a aplicação
 
-|________ :file_folder: :heavy_minus_sign: **layouts** : Diretório responsável por armzenar componentes extras na aplicação
+|________ :file_folder: :heavy_minus_sign: **layouts** : Diretório responsável por armazenar componentes extras na aplicação
 
-|________ :file_folder: :heavy_minus_sign: **pipes** : Diretório responsável por armzenar pipes comuns a aplicação
+|________ :file_folder: :heavy_minus_sign: **pipes** : Diretório responsável por armazenar pipes comuns a aplicação
 
 |________ :file_folder: :heavy_minus_sign: **print** : Diretório responsável por armazenar componentes para impressão
 
