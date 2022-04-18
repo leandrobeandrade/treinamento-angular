@@ -27,14 +27,13 @@ Define a estilização dos elementos do Template, utilizando a linguagem de esti
 
 > Abreviação
 
-    .some-class.another-class { ... }           
-    CSS
-    
     .some-class {                               SCSS
       ...
       
       &.another-class { ... }
     }
+
+    .some-class.another-class { ... }           CSS
     
 O seletor pai também pode ser seguido por um sufixo, ou seja, ele pode ser apenas parte do nome do seletor.
     
@@ -52,10 +51,14 @@ O seletor pai também pode ser seguido por um sufixo, ou seja, ele pode ser apen
 
 > Variáveis
 
-    $bg-color: blue;
+    $bg-color: blue;                            SCSS
 
     p {
       color: $bg-color;
+    }
+    
+    p {
+      color: blue;                              CSS
     }
     
 > Herança 
