@@ -4,7 +4,19 @@ Arquivo responsável por gerenciar elementos do DOM virtual Angular. Uma Diretiv
 
 ### Descrição @Directive
 
-> Decorator que marca uma classe como uma diretiva Angular. Você pode definir suas próprias diretivas para anexar comportamento personalizado a elementos no DOM.
+> Decorator que marca uma classe como uma diretiva Angular. Possibilita definir diretivas próprias para anexar comportamento personalizado a elementos no DOM.
+
+      @Directive({
+        selector?: string,
+        inputs?: string[],
+        outputs?: string[],
+        providers?: Provider[],
+        exportAs?: string,
+        queries?: { [key: string]: any; },
+        host?: { [key: string]: string; },
+        jit?: boolean
+      })
+      class ChildDir { ... }
 
 - **selector? -** O seletor CSS que identifica esta diretiva em um modelo e dispara a instanciação da diretiva:
 
