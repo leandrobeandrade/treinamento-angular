@@ -34,7 +34,9 @@ No construtor de uma classe criasse a instância de outras classes que podem ou 
 
         constructor(http: HttpService) {}
   
-        this.http.get()...
+        getSomething() {
+            this.http.get()...
+        }
     }
 
     // Classe de Funcionalidade
@@ -113,7 +115,7 @@ Podemos gerenciar dados existentes na aplicação e compartilhá-los em outros l
  
  ### Comunicação Externa de Dados
  
-Prove comunicação `bidirecional` de dados entre a aplicação e um servidor. O método assíncrono envia uma solicitação HTTP e retorna um Observable que emite os dados solicitados quando a resposta é recebida. O tipo de retorno varia com base nos valores observe e responseType que você passa para a chamada.
+Prove comunicação `bidirecional` de dados entre a aplicação e um servidor. O método *`assíncrono`* envia uma solicitação HTTP e retorna um Observable que emite os dados solicitados quando a resposta é recebida. O tipo de retorno varia com base nos valores **observe** e **responseType** que você passa para a chamada.
  
 > Exemplo de uso
   
@@ -123,24 +125,28 @@ Prove comunicação `bidirecional` de dados entre a aplicação e um servidor. O
     import { HttpClient } from '@angular/common/http';
 
     @Injectable()
-    export class ConfigService {
-      configUrl = 'https://api-example';
+    export class UserService {
+      userUrl = 'https://api-example/user';
   
       constructor(private http: HttpClient) {}
 
-      getConfig(): Observable<any> {
-        return this.http.get<any>(this.configUrl);
+      getUsers(): Observable<any> {
+        return this.http.get<any>(this.userUrl);
       }
     }
   
 #### Classe de funcionalidade
   
-    constructor(private configService: ConfigService) {}
- 
-    config: Config;
+    ...
+    providers: [UserService]
+    ...
+    
+    user: IUser;
+    
+    constructor(private userService: UserService) {}
 
-    showConfig() {
-      this.configService.getConfig().subscribe((data: Config) => this.config = data);
+    showUsers() {
+      this.userService.getUsers().subscribe((resp: IUser) => this.user = resp);
     }  
     
 | Referências|
