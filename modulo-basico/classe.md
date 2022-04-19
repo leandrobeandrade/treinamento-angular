@@ -24,7 +24,7 @@ Decorator que marca uma classe como um componente Angular e fornece metadados de
           @Component({
              selector: 'my-app',
              template: `Number of ticks: {{ numberOfTicks }}`,
-              changeDetection: ChangeDetectionStrategy.OnPush,
+             changeDetection: ChangeDetectionStrategy.OnPush,
           })
 
 - **viewProviders? -** Define o conjunto de objetos injetáveis que são visíveis para seus filhos no DOM de exibição.
@@ -102,6 +102,7 @@ Decorator que marca uma classe como um componente Angular e fornece metadados de
 |-|
 
 - [componentes](https://angular.io/api/core/Component)
+- [cheatsheet](https://angular.io/guide/cheatsheet)
 
 ## Ganchos de Ciclo de Vida
 
@@ -135,7 +136,7 @@ Métodos de Classes que controlam os componentes conforme o seu ciclo. Represent
 
       ngAfterViewInit() {...}
 
-- **ngAfterViewChecked() -** Chamado após cada verificação das visualizações do componente e visualizações filhas / visualização em que uma diretiva está.
+- **ngAfterViewChecked() -** Chamado após cada verificação das visualizações do componente e visualizações filhas / visualização em que uma diretiva está:
 
       ngAfterViewChecked() {...}
 
@@ -146,4 +147,4 @@ Métodos de Classes que controlam os componentes conforme o seu ciclo. Represent
 |Referências|
 |-|
 
-- [cheatsheet](https://angular.io/guide/cheatsheet)
+- [Lifecycle hooks](https://angular.io/guide/lifecycle-hooks)
