@@ -147,9 +147,9 @@ São utilizados para a manipulação de valores de propriedades e métodos de cl
 
 > Polimorfismo
 
-Permite que o comportamento de classes filhas tenham diferentes implementaçãoes através das funcionalidades de **Sobrescrita (override)** e **Sobrecarga (overload)** de métodos.
+Permite que o comportamento de classes filhas tenham diferentes implementaçãoes através de *`Sobrescrita`* e *`Sobrecarga`* de métodos.
 
-#### Sobrescrita de Métodos
+#### Sobrescrita de Métodos (Override)
 
     class Pessoa {
       public nome: string;
@@ -171,7 +171,7 @@ Permite que o comportamento de classes filhas tenham diferentes implementaçãoe
         this.salario = salario;
       }
 
-      print(): void {
+      print(): void {                                                           // Sobrescrita 
         super.print();
         console.log(`O nome é ${this.nome} e o salario: ${this.salario}`);
       }
@@ -181,9 +181,30 @@ Permite que o comportamento de classes filhas tenham diferentes implementaçãoe
     pessoa.print();
     console.log(pessoa);
 
-    const funcionario: Pessoa = new Funcionario('Ciclano', 3500);		// polimorfismo
+    const funcionario: Pessoa = new Funcionario('Ciclano', 3500);		        // polimorfismo
     funcionario.print();
     console.log(funcionario);
+    
+#### Sobrecaraga de Métodos (Overload)
+
+    class Funcionario {
+      funcionarios(name: string, age?: number, location?: string) {
+        let fnc: any[] = [];
+
+        if(age != undefined && location != undefined) {
+          fnc.push({ name, age, location });
+        } else {
+          fnc.push({ name });
+        }
+
+        console.log(fnc);
+      }
+    }
+
+    const func = new Funcionario();
+    
+    func.funcionarios('Fulano');
+    func.funcionarios('Ciclano', 28, 'São Paulo');                              // Sobrescrita
     
 > Classe Abstrata
 
