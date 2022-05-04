@@ -4,7 +4,7 @@
 - Herança
 - Modificadores de Acesso
 - Métodos Get/Set
-- Polimorfismo (Sobrescrita)
+- Polimorfismo
 - Classes Abstratas
 - Interfaces
 - Tipos Genéricos
@@ -147,9 +147,9 @@ São utilizados para a manipulação de valores de propriedades e métodos de cl
 
 > Polimorfismo
 
-Permite que o comportamento de classes filhas tenham diferentes implementaçãoes através da **Sobrescrita (override)** de métodos.
+Permite que o comportamento de classes filhas tenham diferentes implementaçãoes através das funcionalidades de **Sobrescrita (override)** e **Sobrecarga (overload)** de métodos.
 
-**OBS:** Typescript não permite a técnica de **Sobrecarga (overload)** de métodos
+#### Sobrescrita de Métodos
 
     class Pessoa {
       public nome: string;
