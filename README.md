@@ -1,4 +1,4 @@
-# Treinamento Angular e-Kaizen
+# Treinamento Angular
 
 Descritivo do fluxo e tópicos a serem abordados durante o treinamento de Angular. Servindo como documentação de apoio para pesquisa. Outras documentações como as oficiais e cursos em plataformas web também são indicados para complementação assim como para um maior e melhor entendimento a respeito de cada tecnologia utilizada.
 
@@ -108,5 +108,3 @@ Descritivo do fluxo e tópicos a serem abordados durante o treinamento de Angula
 - [Descrição](https://github.com/leandrobeandrade/treinamento-angular/blob/main/modulo-avancado/rxjs/descricao.md)
 - [Operadores Gerais Comuns](https://github.com/leandrobeandrade/treinamento-angular/blob/main/modulo-avancado/rxjs/operadores-gerais.md)
 - [Exemplos Aplicados](https://github.com/leandrobeandrade/treinamento-angular/blob/main/modulo-avancado/rxjs/exemplos-aplicados.md)
-
-![Treinamento Angular](https://user-images.githubusercontent.com/24658433/162741745-b9dd189b-98af-4e30-98f3-a755986d4874.png)
