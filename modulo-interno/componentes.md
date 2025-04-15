@@ -1,4 +1,4 @@
-## Componentes Internos e-Kaizen
+## Componentes Internos
 
 Alguns componentes foram desenvolvidas de uma forma genérica para que podessem serem utilizados pela aplicação em geral
 
