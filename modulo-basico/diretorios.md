@@ -56,6 +56,3 @@
 |________ :file_folder: :heavy_minus_sign: **dashboard** : Diretório responsável por armazenar componentes das ferramentas
 
 |________ :file_folder: :heavy_minus_sign: **frontend** : Diretório responsável por armazenar o componente da tela inicial da aplicação
-
-
-![image](https://user-images.githubusercontent.com/24658433/155558859-2f5882ee-7e8f-4a95-969f-03cd1bab3926.png)
