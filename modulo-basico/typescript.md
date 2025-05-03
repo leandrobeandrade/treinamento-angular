@@ -204,7 +204,7 @@ Permite que o comportamento de classes filhas tenham diferentes implementaçãoe
     const func = new Funcionario();
     
     func.funcionarios('Fulano');
-    func.funcionarios('Ciclano', 28, 'São Paulo');                              // Sobrescrita
+    func.funcionarios('Ciclano', 28, 'São Paulo');                              // Sobrecarga
     
 > Classe Abstrata
 
