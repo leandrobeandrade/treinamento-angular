@@ -26,5 +26,3 @@ Utilizamos [Nebular](https://akveo.github.io/nebular/) **versão 7.0.0** como fo
   - toastr
 - Extra
   - nb-badge (pouca utilização)
-
-> Realizar leitura do nosso [style guide](https://gitlab.com/ekaizen1/ekaizen-frontend-redo/-/blob/develop/README.md) para uma melhor entendimento e implementação do Nebular.
