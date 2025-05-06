@@ -35,6 +35,3 @@ seus componentes pré-construídos.
 - margin (top/left/etc...)
 - padding (top/letf/etc...)
 - text (center/danger/etc...)
-
-> Realizar leitura do nosso [style guide](https://gitlab.com/ekaizen1/ekaizen-frontend-redo/-/blob/develop/README.md) para uma melhor entendimento e implementação do Bootstrap.
-
