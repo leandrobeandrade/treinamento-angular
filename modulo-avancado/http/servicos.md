@@ -21,7 +21,7 @@ Classe responsável por realizar as chamadas aos métodos do pacote **http** do 
 
 Classe reponsável pelo formato do retorno processado pelas requisições. Implementas propriedades tangíveis a cada tipo de requisição especificando o que cada uma possui no seu retorno, assim como propriedades que auxiliam por parte do cliente na utilização destas repostas, exemplo propriedade *`length`* que retorna a quantidade de registros existentes naquela requisição.
 
-> Todos este métodos apesar de possuirem a marcação **deprecated**, funcionam perfeitamente, embora podem não serem utilizados se a opção da integração for a nova implementação do ApiService que pode ser vista [aqui](https://gitlab.com/ekaizen1/ekaizen-frontend-redo/-/wikis/api/Usando-novo-ApiService).
+> Todos este métodos apesar de possuirem a marcação **deprecated**, funcionam perfeitamente, embora podem não serem utilizados se a opção da integração for a nova implementação do ApiService que pode ser vista.
 
 #### Descrições gerais
 
