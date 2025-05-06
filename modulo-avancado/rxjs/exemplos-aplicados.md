@@ -1,6 +1,6 @@
 ## Exemplos Aplicados
 
-Exemplos de uso na aplicação **ekaizen-frontend-redo** referentes a utilização da biblioteca `RXJS` con suas funcionalidades e seus operadores.
+Exemplos de uso na aplicação referentes a utilização da biblioteca `RXJS` con suas funcionalidades e seus operadores.
 
 > ### forkJoin
 
