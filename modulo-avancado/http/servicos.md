@@ -50,7 +50,7 @@ Exemplo de serviço consumindo API localmente
         .crudeAdd({
           url: this.url,
           payload: categories.toJSON(),
-        }, true)                                                 // true - Automaticamente conectara com as API's rodando na máquina
+        }, true)                                           // true - Automaticamente conectara com as API's rodando na máquina
         .pipe(
           map((res) => {
             return new IResponseOld<IUserModel>(res, IUserModel);
@@ -61,4 +61,3 @@ Exemplo de serviço consumindo API localmente
 > Via IBM
 
 Para se integrar dados cuja API's já foram publicadas basta apenas declarar os endpoints com os métodos que implementam os verbos *`HTPP`* correspondentes, sem passar o valor **true**
-
