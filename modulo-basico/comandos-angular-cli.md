@@ -44,3 +44,4 @@
 | Gera um build em desenvolvimento  | ng build --dev  | ng b --dev    |
 |                                                                     |
 | * ng build --prod equivale a ng build --aot (ahead of time)         |
+| [lista completa de comandos builds](https://angular.dev/cli/build)  |
