@@ -3,7 +3,7 @@
 | O que faz                                   | Comando NPM                   | Comando YARN                |
 | -                                           |-                              | -                           |
 | Instala dependências necessárias no projeto | npm install / npm i           | yarn                        |
-| Executa o projeto *                         | npm run                       | yarn run                    |
+| Executa o projeto                           | npm run                       | yarn run                    |
 | Cria um arquivo package.json.               | npm init                      | yarn init                   |
 | Instala uma dependência                     | npm install bootstrap         | yarn add bootstrap          |
 | Atualiza uma dependência                    | npm install bootstrap@latest  | yarn up bootstrap --latest  |
@@ -22,7 +22,7 @@
 | Falha caso divergências     | Não falha                            | Falha se arquivos divergirem     |
 
 > Casos para utilizar npm ci
-- Para aplicações Angular de alto desempenho:
+- Para aplicações Angular de alto desempenho.
 - Angular é muito sensível à compatibilidade entre versões de dependências, como @angular/core, rxjs, e zone.js.
 - Usar npm ci em ambientes de build evita bugs difíceis de rastrear causados por diferenças de versão.
 - Garante que o build de produção é exatamente o mesmo do ambiente de desenvolvimento homologado.
