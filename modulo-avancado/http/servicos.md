@@ -9,7 +9,7 @@ necessária para a integração dos dados. Dentre estes arquivos os principais s
 
 ### Serializable (~~não mais utilizada~~)
 
-Classe responsável por serializar e transformar os dados comunicados entre cliente e servidor para um formato em comum e que corresponda o esperado por ambos os lados. Também implementa propriedades comuns a praticamente todos os models, não sendo necessário declarar nos models estas propriedades já implementadas nesta classe como por exemplo *`id`*. 
+Classe responsável por serializar e transformar os dados comunicados entre cliente e servidor para um formato em comum e que corresponda o esperado por ambos os lados. Também implementa propriedades comuns a praticamente todos os models, não sendo necessário declarar nos models estas propriedades já implementadas nesta classe como por exemplo *`id`*.
 
 ### ApiService
 
@@ -26,3 +26,5 @@ Classe reponsável pelo formato do retorno processado pelas requisições. Imple
 - Todos os serviços devem ser tipados com sua respectiva classe modelo para prevenção de possíveis inconsistências de dados
 - A url base deve estar em consenso com a versão definida pela API naquele momento
 - Todos os serviços devem ser declarados dentro dos **`providers`** da classe utilitária que utilizar o serviço
+
+### Exemplo 
