@@ -3,11 +3,11 @@
 Para implementação de services que fazem integração com as API's, utilizamos classes utilitárias implementadas na aplicação que auxiliam e abstraem boa parte da lógica 
 necessária para a integração dos dados. Dentre estes arquivos os principais são:
 
-- Serializable ??
+- Serializable
 - ApiServiceOld
 - IResponseOld
 
-### Serializable (~~não mais utilizada~~)
+### Serializable
 
 Classe responsável por serializar e transformar os dados comunicados entre cliente e servidor para um formato em comum e que corresponda o esperado por ambos os lados. Também implementa propriedades comuns a praticamente todos os models, não sendo necessário declarar nos models estas propriedades já implementadas nesta classe como por exemplo *`id`*.
 
