@@ -529,6 +529,10 @@ Aplica uma função de acumulador sobre a fonte Observable e retorna o resultado
     
     // Logs:
     // Quantidade de cliques no período de 5 segundos
+
+|Exemplos funcionais|
+|-|
+- [rxjs](https://stackblitz.com/@leandrobeandrade/collections/rxjs)
     
 |Referências|
 |-|
